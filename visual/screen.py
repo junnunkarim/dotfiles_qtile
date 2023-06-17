@@ -5,7 +5,7 @@ from libqtile.config import Screen
 from .bar import top_bar
 
 home = os.path.expanduser('~')
-wallpaper_image= home + '/.config/wallpaper/pixelart_night_train_cozy_gas_nord_RoyalNaym.png'
+wallpaper_image= home + '/.config/wallpaper/pixelart_house_chibi_person_game_jmw327.png'
 
 screens = [
     Screen(

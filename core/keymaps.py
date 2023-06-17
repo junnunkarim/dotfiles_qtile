@@ -19,6 +19,7 @@ keys = [
     Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
     Key([mod], "space", lazy.window.toggle_floating(), desc="Toggle floating"),
     Key([mod], "b", lazy.hide_show_bar(), desc="Toggle visibility of the bar"),
+    Key([mod], "w", lazy.widget["widgetbox"].toggle(), desc="Toggle WidgetBox of the bar"),
 
     # cycle through windows and groups
     Key([mod], "Tab", lazy.screen.next_group(skip_empty=True), desc="Cycle through octive groups clockwise"),

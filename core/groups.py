@@ -8,8 +8,8 @@ from .scratchpad import scratchpad
 groups = [
     Group(
         '1',
-        #label="",
-        label="",
+        label="",
+        #label="",
         matches=[
             Match(wm_class="Alacritty"),
             Match(wm_class="org.wezfurlong.wezterm"),
@@ -20,8 +20,8 @@ groups = [
     ),
     Group(
         '2',
-        #label="",
-        label="",
+        label="",
+        #label="",
         matches=[
             Match(wm_class="thunar"),
             Match(wm_class="qbittorrent"),
@@ -29,8 +29,8 @@ groups = [
     ),
     Group(
         '3',
-        #label="",
-        label="",
+        label="",
+        #label="",
         matches=[
             Match(wm_class="firefox"),
             Match(wm_class="chromium"),
@@ -40,8 +40,8 @@ groups = [
     ),
     Group(
         '4',
-        #label="ﮑ",
-        label="",
+        label="ﮑ",
+        #label="",
         matches=[
             Match(title="GNU Image Manipulation Program"), # gimp
             Match(wm_class="vlc"),
@@ -50,8 +50,8 @@ groups = [
     ),
     Group(
         '5',
-        #label="龎",
-        label="",
+        label="龎",
+        #label="",
         matches=[
             Match(wm_class="calibre-gui"),
             Match(wm_class="DesktopEditors"),
@@ -61,16 +61,16 @@ groups = [
     ),
     Group(
         '6',
-        #label="ﮠ",
-        label="",
+        label="ﮠ",
+        #label="",
         matches=[
             Match(wm_class="telegram-desktop"),
         ],
     ),
     Group(
         '7',
-        #label="",
-        label="",
+        label="",
+        #label="",
         matches=[
             Match(wm_class="Ryujinx"),
             Match(wm_class="yuzu"),
@@ -79,8 +79,8 @@ groups = [
     ),
     Group(
         '8',
-        #label="煉",
-        label="",
+        label="煉",
+        #label="",
         matches=[
             Match(wm_class="Gparted"),
             Match(wm_class="xfce4-power-manager-settings"),
@@ -89,8 +89,8 @@ groups = [
     ),
     Group(
         '9',
-        #label="",
-        label="",
+        label="",
+        #label="",
         matches=[],
     ),
 ]
