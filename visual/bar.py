@@ -196,8 +196,6 @@ top_bar = bar.Bar(
             ],
         ),
 
-
-       
         widget.TextBox(
             fmt=" ",
             font="Iosevka Nerd Font Mono",

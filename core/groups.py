@@ -23,7 +23,7 @@ groups = [
         label="",
         #label="",
         matches=[
-            Match(wm_class="thunar"),
+            Match(wm_class="Thunar"),
             Match(wm_class="qbittorrent"),
         ],
     ),
@@ -40,7 +40,7 @@ groups = [
     ),
     Group(
         '4',
-        label="ﮑ",
+        label="",
         #label="",
         matches=[
             Match(title="GNU Image Manipulation Program"), # gimp
@@ -61,7 +61,7 @@ groups = [
     ),
     Group(
         '6',
-        label="ﮠ",
+        label="󰚢",
         #label="",
         matches=[
             Match(wm_class="telegram-desktop"),
