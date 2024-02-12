@@ -1,12 +1,20 @@
 from libqtile import layout
 from libqtile.config import Match
 
-from .utils import gaps_size
+from options import default_options
+
+gaps_size = default_options["gaps_size"]
 
 layouts = [
     layout.Max(border_focus="#d08770", border_width=2, margin=gaps_size),
-    layout.Tile(add_after_last=True, border_focus="#d08770", border_width=2, margin=gaps_size, max_ratio=0.50, ratio=0.50),
-
+    layout.Tile(
+        add_after_last=True,
+        border_focus="#d08770",
+        border_width=2,
+        margin=gaps_size,
+        max_ratio=0.50,
+        ratio=0.50,
+    ),
     # Try more layouts by unleashing below layouts.
     # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=2, margin=10),
     # layout.Stack(num_stacks=2),
@@ -34,10 +42,8 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(wm_class="xfce4-about"),
         Match(wm_class="xfce4-power-manager-settings"),
-
         Match(title="branchdialog"),  # gitk
-        Match(title="GNU Image Manipulation Program"), # gimp
+        Match(title="GNU Image Manipulation Program"),  # gimp
         Match(title="pinentry"),  # GPG key password entry
     ]
 )
-
