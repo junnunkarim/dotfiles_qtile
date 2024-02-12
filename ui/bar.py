@@ -9,8 +9,7 @@ colors = load_module(colorscheme_module_path)
 widgets_module_path = f"widgets.{default_bar_type}.widgets"
 w = load_module(widgets_module_path)
 widget_list = (
-    w.separator_small
-    + w.app_launcher
+    w.app_launcher
     + w.separator_small
     + w.windowname
     + w.separator_auto
@@ -20,15 +19,15 @@ widget_list = (
     + w.separator_small
     + w.layout_icon
     + w.separator_auto
-    + w.widgetbox
+    + w.widgetbox_info
     + w.separator_small
     + w.battery
     + w.separator_small
     + w.time
     + w.separator_small
     + w.date
-    + w.tray
     + w.separator_small
+    + w.tray
 )
 
 gaps_size = default_options["gaps_size"]

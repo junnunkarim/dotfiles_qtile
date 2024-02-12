@@ -289,19 +289,38 @@ network = [
 ]
 
 tray = [
-    widget.Systray(
-        background=colors.tray_colors["bg"],
-        padding=10,
+    widget.WidgetBox(
+        name="traybox",
+        close_button_location="right",
+        fontsize=30,
+        foreground=colors.tray_colors["bg"],
+        text_closed="",
+        text_open="",
+        widgets=[
+            widget.Systray(
+                background=colors.tray_colors["bg"],
+                padding=5,
+            ),
+        ]
+        + [
+            widget.TextBox(
+                background=colors.tray_colors["bg"],
+            ),
+        ]
+        + separator_small,
     ),
 ]
 
-widgetbox = [
+widgetbox_info = [
     widget.WidgetBox(
+        name="infobox",
         close_button_location="right",
-        fontsize=30,
+        fontsize=25,
         foreground=colors.widgetbox_colors["fg"],
-        text_closed="",  # 󰸳
-        text_open="",  # 󰸶
+        text_closed="",  # 󰸳
+        text_open="",  # 󰸶
+        # text_closed="",
+        # text_open="",
         # padding=10,
         widgets=volume
         + separator_small

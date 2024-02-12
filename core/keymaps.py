@@ -23,9 +23,15 @@ keys = [
     Key([mod], "space", lazy.window.toggle_floating(), desc="Toggle floating"),
     Key([mod], "b", lazy.hide_show_bar(), desc="Toggle visibility of the bar"),
     Key(
-        [mod],
+        [mod, "shift"],
         "w",
-        lazy.widget["widgetbox"].toggle(),
+        lazy.widget["infobox"].toggle(),
+        desc="Toggle WidgetBox of the bar",
+    ),
+    Key(
+        [mod, "shift"],
+        "t",
+        lazy.widget["traybox"].toggle(),
         desc="Toggle WidgetBox of the bar",
     ),
     # cycle through windows and groups
