@@ -76,6 +76,7 @@ windowname_colors = {
 titlebar_colors = {
     "border": c["black"],
     "border_focus": c["green2"],
+    "border_floating": c["orange2"],
 }
 
 bar_colors = {

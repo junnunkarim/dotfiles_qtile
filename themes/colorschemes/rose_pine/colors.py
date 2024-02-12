@@ -58,7 +58,7 @@ groupbox_colors = {
 }
 
 windowname_colors = {
-    "fg": c["black3"],
+    "fg": c["peach2"],
     "fg_focus": c["black3"],
     "fg_minimize": c["gray2"],
     "bg": c["black3"],
@@ -70,6 +70,7 @@ windowname_colors = {
 titlebar_colors = {
     "border": c["black3"],
     "border_focus": c["peach2"],
+    "border_floating": c["cyan1"],
 }
 
 bar_colors = {

@@ -1,5 +1,3 @@
-# import shutil
-
 from libqtile import bar, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
@@ -8,6 +6,7 @@ import core.autostart
 from core.keymaps import *
 from core.layouts import *
 from core.rules import *
+from options import default_font
 from ui.screens import *
 
 # from libqtile.utils import guess_terminal
@@ -28,10 +27,11 @@ from ui.screens import *
 #     )
 
 widget_defaults = dict(
-    font="Iosevka Nerd Font Mono",
+    font=default_font,
     fontsize=16,
     padding=0,
 )
+
 extension_defaults = widget_defaults.copy()
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list

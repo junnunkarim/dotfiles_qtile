@@ -1,4 +1,8 @@
 default_colorscheme = "rose_pine"
+default_bar_type = "horizontal"
+default_font = "Iosevka Nerd Font Mono"
+# default_font = "CozetteVector"
+# default_font = "VictorMono Nerd Font Mono"
 
 default_apps = {
     # default app launcher

@@ -1,15 +1,25 @@
 from libqtile import layout
 from libqtile.config import Match
 
-from options import default_options
+from core.helper import load_module
+from options import default_colorscheme, default_options
+
+colorscheme_module_path = f"themes.colorschemes.{default_colorscheme}.colors"
+colors = load_module(colorscheme_module_path)
+
 
 gaps_size = default_options["gaps_size"]
 
 layouts = [
-    layout.Max(border_focus="#d08770", border_width=2, margin=gaps_size),
+    layout.Max(
+        border_focus=colors.titlebar_colors["border_focus"],
+        border_normal=colors.titlebar_colors["border_focus"],
+        border_width=2,
+        margin=gaps_size,
+    ),
     layout.Tile(
         add_after_last=True,
-        border_focus="#d08770",
+        border_focus=colors.titlebar_colors["border_focus"],
         border_width=2,
         margin=gaps_size,
         max_ratio=0.50,
@@ -29,6 +39,9 @@ layouts = [
 ]
 
 floating_layout = layout.Floating(
+    border_focus=colors.titlebar_colors["border_floating"],
+    border_normal=colors.titlebar_colors["border"],
+    border_width=2,
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
@@ -45,5 +58,5 @@ floating_layout = layout.Floating(
         Match(title="branchdialog"),  # gitk
         Match(title="GNU Image Manipulation Program"),  # gimp
         Match(title="pinentry"),  # GPG key password entry
-    ]
+    ],
 )
