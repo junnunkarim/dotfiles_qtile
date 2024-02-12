@@ -1,3 +1,25 @@
+everforest = {
+    "white": "#d3c6aa",
+    "black": "#272e33",
+    "black0": "#1e2326",
+    "gray1": "#859289",
+    "gray2": "#7a8478",
+    "red1": "#e67e80",
+    "red2": "#f85552",
+    "green1": "#a7c080",
+    "green2": "#8da101",
+    "yellow1": "#dbbc7f",
+    "yellow2": "#dfa000",
+    "blue1": "#7fbbb3",
+    "blue2": "#3a94c5",
+    "purple1": "#d699b6",
+    "purple2": "#df69ba",
+    "aqua1": "#83c092",
+    "aqua2": "#35a77c",
+    "orange1": "#e69875",
+    "orange2": "#f57d26",
+}
+
 gruvbox = {
     "white0": "#fbf1c7",
     "white": "#ebdbb2",

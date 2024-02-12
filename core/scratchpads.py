@@ -6,10 +6,10 @@ from .keymaps import keys, mod
 dropdowns = [
     DropDown(
         "term",
-        "alacritty",
-        width=0.6,
-        height=0.6,
-        x=0.2,
+        "konsole --name scratch_term",
+        width=0.7,
+        height=0.7,
+        x=0.165,
         y=0.1,
         on_focus_lost_hide=False,
     ),

@@ -14,6 +14,7 @@ mod, alt, ctrl = (
 )
 terminal = default_apps["terminal"] or guess_terminal()
 home = os.path.expanduser("~")
+scripts = home + "/.config/qtile/scripts/"
 
 keys = [
     ##---------- System (super [+ shift]) ----------##
@@ -67,10 +68,42 @@ keys = [
     Key([mod, "shift"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "l", lazy.spawn("slock"), desc="Lock Screen"),
     # rofi menus
-    Key([mod], "d", lazy.spawn([home + "/.bin/rofi_run"]), desc="Open App Launcher"),
-    Key([mod], "x", lazy.spawn([home + "/.bin/powermenu"]), desc="Open PowerMenu"),
-    Key([mod], "h", lazy.spawn([home + "/.bin/clipboard"]), desc="Open Clipboard"),
-    Key([mod], "r", lazy.spawn([home + "/.bin/rofi_calc"]), desc="Open Calculator"),
+    Key(
+        [mod],
+        "d",
+        lazy.spawn([scripts + "rofi_run"]),
+        desc="Open App Launcher",
+    ),
+    Key(
+        [mod],
+        "x",
+        lazy.spawn([scripts + "powermenu"]),
+        desc="Open PowerMenu",
+    ),
+    Key(
+        [mod],
+        "h",
+        lazy.spawn([scripts + "clipboard"]),
+        desc="Open Clipboard",
+    ),
+    Key(
+        [mod],
+        "r",
+        lazy.spawn([scripts + "rofi_calc"]),
+        desc="Open Calculator",
+    ),
+    Key(
+        [mod, "shift"],
+        "b",
+        lazy.spawn([scripts + "rofi_buku"]),
+        desc="Open buku",
+    ),
+    Key(
+        [mod],
+        "t",
+        lazy.spawn([scripts + "theme_switcher"]),
+        desc="Open theme-switcher",
+    ),
     Key([mod], "n", lazy.spawn("networkmanager_dmenu"), desc="Open Network Manager"),
     ##---------- System Keys ----------##
     Key(

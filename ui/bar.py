@@ -8,6 +8,10 @@ colors = load_module(colorscheme_module_path)
 
 widgets_module_path = f"widgets.{default_bar_type}.widgets"
 w = load_module(widgets_module_path)
+
+custom_widgets_module_path = f"widgets.{default_bar_type}.custom_widgets"
+cw = load_module(custom_widgets_module_path)
+
 widget_list = (
     w.app_launcher
     + w.separator_small
@@ -25,7 +29,7 @@ widget_list = (
     + w.separator_small
     + w.time
     + w.separator_small
-    + w.date
+    + cw.date
     + w.separator_small
     + w.tray
 )
