@@ -47,7 +47,7 @@ date_colors = {
 tray_colors = {
     "fg": other_colors["dark"],
     "fg_icon": c["black"],
-    "bg": c["red1"],
+    "bg": c["yellow1"],
     "border": c["red2"],
 }
 

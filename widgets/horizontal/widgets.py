@@ -29,7 +29,7 @@ app_launcher_comp = widget.TextBox(
 )
 
 windowname_comp = widget.WindowName(
-    width=500,
+    width=450,
     background=colors.windowname_colors["bg"],
     # empty_group_string="╮(︶︿︶)╭  Nothing to See... ┬┴┬┴┤(･_├┬┴┬┴",
     fmt=" <i><b>{}</b></i>",
@@ -218,6 +218,7 @@ network_comp = {
     "value": widget.Wlan(
         background=colors.network_colors["bg"],
         foreground=colors.network_colors["fg"],
+        max_chars=12,
         format="{essid}",
         interface="wlp1s0",
         mouse_callbacks={
@@ -291,12 +292,13 @@ network = [
 tray = [
     widget.WidgetBox(
         name="traybox",
-        close_button_location="right",
+        close_button_location="left",
         fontsize=30,
         foreground=colors.tray_colors["bg"],
         text_closed="",
         text_open="",
-        widgets=[
+        widgets=separator_small
+        + [
             widget.Systray(
                 background=colors.tray_colors["bg"],
                 padding=5,
@@ -306,8 +308,7 @@ tray = [
             widget.TextBox(
                 background=colors.tray_colors["bg"],
             ),
-        ]
-        + separator_small,
+        ],
     ),
 ]
 
@@ -322,11 +323,6 @@ widgetbox_info = [
         # text_closed="",
         # text_open="",
         # padding=10,
-        widgets=volume
-        + separator_small
-        + backlight
-        + separator_small
-        + network
-        + separator_small,
+        widgets=volume + backlight + network + separator_small,
     )
 ]

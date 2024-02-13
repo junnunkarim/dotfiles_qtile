@@ -15,6 +15,7 @@ cw = load_module(custom_widgets_module_path)
 widget_list = (
     w.app_launcher
     + w.separator_small
+    + w.tray
     + w.windowname
     + w.separator_auto
     + w.client_count
@@ -30,8 +31,6 @@ widget_list = (
     + w.time
     + w.separator_small
     + cw.date
-    + w.separator_small
-    + w.tray
 )
 
 gaps_size = default_options["gaps_size"]
