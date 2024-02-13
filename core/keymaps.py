@@ -1,5 +1,4 @@
 import os
-import shutil
 
 from libqtile.config import Click, Drag, Key
 from libqtile.lazy import lazy
@@ -12,7 +11,12 @@ mod, alt, ctrl = (
     default_options["alt"],
     default_options["ctrl"],
 )
+
 terminal = default_apps["terminal"] or guess_terminal()
+file_manager = default_apps["file_manager"]
+text_editor = default_apps["text_editor"]
+web_browser = default_apps["web_browser"]
+
 home = os.path.expanduser("~")
 scripts = home + "/.config/qtile/scripts/"
 
@@ -58,7 +62,7 @@ keys = [
         desc="Move window focus to other window",
     ),
     Key(
-        [mod, "control", "shift"],
+        [mod, ctrl, "shift"],
         "space",
         lazy.next_layout(),
         desc="Toggle between layouts",
@@ -84,7 +88,7 @@ keys = [
     Key(
         [mod],
         "h",
-        lazy.spawn([scripts + "clipboard"]),
+        lazy.spawn([scripts + "rofi_clip"]),
         desc="Open Clipboard",
     ),
     Key(
@@ -192,10 +196,10 @@ keys = [
     ),
     ##---------- Applications (super + alt) ----------##
     # web browser
-    Key([mod, alt], "b", lazy.spawn("chromium"), desc="Open Chromium"),
+    Key([mod, alt], "b", lazy.spawn(web_browser), desc="Open default web browser"),
     Key([mod, alt], "e", lazy.spawn("firefox"), desc="Open Firefox"),
     # file manager
-    Key([mod, alt], "f", lazy.spawn("thunar"), desc="Open Thunar"),
+    Key([mod, alt], "f", lazy.spawn(file_manager), desc="Open file manager"),
     # cli programs
     Key(
         [mod, alt],
@@ -203,7 +207,7 @@ keys = [
         lazy.spawn([home + "/.bin/nnn_run"]),
         desc="Open NNN file manager",
     ),
-    Key([mod, alt], "v", lazy.spawn("alacritty -e nvim"), desc="Open Neovim"),
+    Key([mod, alt], "v", lazy.spawn(text_editor), desc="Open text editor"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
     # Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
@@ -212,12 +216,10 @@ keys = [
     # Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
-    Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key(
-        [mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"
-    ),
-    Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
+    Key([mod, ctrl], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
+    Key([mod, ctrl], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
+    Key([mod, ctrl], "j", lazy.layout.grow_down(), desc="Grow window down"),
+    Key([mod, ctrl], "k", lazy.layout.grow_up(), desc="Grow window up"),
     # Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed

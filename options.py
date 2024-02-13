@@ -1,22 +1,25 @@
+import os
+
 default_colorscheme = "rose_pine"
 default_bar_type = "horizontal"
 default_font = "Iosevka Nerd Font Mono"
-# default_font = "CozetteVector"
-# default_font = "VictorMono Nerd Font Mono"
+
+home = os.path.expanduser("~")
+scripts = home + "/.config/qtile/scripts/"
 
 default_apps = {
     # default app launcher
-    # app_launcher = config_dir .. "scripts/rofi_launcher",
+    "app_launcher": scripts + "rofi_run",
     # default bluetooth manager
     "bluetooth_manager": "blueman-manager",
     # default clipboard manager
-    # "clipboard" = config_dir + "scripts/rofi_clip",
+    "clipboard": scripts + "rofi_clip",
     # default file manager
     "file_manager": "thunar",
     # default terminal emulator
     "terminal": "kitty",
     # default text/code editor
-    "text_editor": "kitty" + " start " + "nvim",
+    "text_editor": "kitty" + " nvim",
     # default web browser
     "web_browser": "chromium",
 }
