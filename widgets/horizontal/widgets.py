@@ -10,6 +10,7 @@ colorscheme_module_path = f"themes.colorschemes.{default_colorscheme}.colors"
 colors = load_module(colorscheme_module_path)
 
 home = os.path.expanduser("~")
+scripts = home + "/.config/qtile/scripts/"
 
 
 # widget components
@@ -17,26 +18,30 @@ home = os.path.expanduser("~")
 
 app_launcher_comp = widget.TextBox(
     background=colors.app_launcher_colors["bg"],
-    fmt="󰣇",
+    # fmt="󰣇",
+    fmt="󰕰",
     font=default_font,
     foreground=colors.app_launcher_colors["fg"],
     fontsize=40,
     mouse_callbacks={
-        "Button1": lazy.spawn([home + "/.bin/rofi_run"]),
+        "Button1": lazy.spawn([scripts + "rofi_run"]),
     },
     # margin=3,
     padding=10,
 )
 
 windowname_comp = widget.WindowName(
-    width=450,
     background=colors.windowname_colors["bg"],
+    foreground=colors.windowname_colors["fg"],
     # empty_group_string="╮(︶︿︶)╭  Nothing to See... ┬┴┬┴┤(･_├┬┴┬┴",
     fmt=" <i><b>{}</b></i>",
+    width=450,
     fontsize=16,
-    foreground=colors.windowname_colors["fg"],
-    # max_chars=50,
     padding=10,
+    scroll=True,
+    scroll_interval=0.02,
+    scroll_delay=1,
+    # max_chars=50,
 )
 
 
@@ -128,6 +133,9 @@ time_comp = {
         fontsize="16",
         format="%I:%M %p",
         padding=10,
+        mouse_callbacks={
+            "Button1": lazy.spawn(["kitty", "calcure"]),
+        },
     ),
 }
 
@@ -151,7 +159,7 @@ date_comp = {
         format="%a %d-%m-%Y ",
         fontsize="16",
         mouse_callbacks={
-            "Button1": lazy.spawn(["alacritty", "-e", "calcure"]),
+            "Button1": lazy.spawn(["kitty", "calcure"]),
         },
         padding=10,
     ),
@@ -167,7 +175,7 @@ volume_comp = {
         fmt="󰓃",
         fontsize="26",
         mouse_callbacks={
-            "button1": lazy.spawn("pavucontrol"),
+            "button1": lazy.spawn(["kitty", "alsamixer"]),
         },
         # padding=5,
     ),
@@ -176,7 +184,7 @@ volume_comp = {
         # emoji=true,
         fmt="{}",
         mouse_callbacks={
-            "button1": lazy.spawn("pavucontrol"),
+            "button1": lazy.spawn(["kitty", "alsamixer"]),
         },
         padding=10,
     ),
@@ -219,6 +227,9 @@ network_comp = {
         background=colors.network_colors["bg"],
         foreground=colors.network_colors["fg"],
         max_chars=12,
+        # width=90,
+        # scroll=True,
+        # scroll_interval=0.05,
         format="{essid}",
         interface="wlp1s0",
         mouse_callbacks={
@@ -316,13 +327,18 @@ widgetbox_info = [
     widget.WidgetBox(
         name="infobox",
         close_button_location="right",
-        fontsize=25,
         foreground=colors.widgetbox_colors["fg"],
+        fontsize=25,
         text_closed="",  # 󰸳
         text_open="",  # 󰸶
         # text_closed="",
         # text_open="",
         # padding=10,
-        widgets=volume + backlight + network + separator_small,
+        widgets=volume
+        + separator_small
+        + backlight
+        + separator_small
+        + network
+        + separator_small,
     )
 ]
