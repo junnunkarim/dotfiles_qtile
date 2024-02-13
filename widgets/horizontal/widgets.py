@@ -17,42 +17,56 @@ scripts = home + "/.config/qtile/scripts/"
 # -----------------
 
 app_launcher_comp = widget.TextBox(
+    foreground=colors.app_launcher_colors["fg"],
     background=colors.app_launcher_colors["bg"],
+    fontsize=40,
+    padding=10,
+    # margin=3,
     # fmt="󰣇",
     fmt="󰕰",
     font=default_font,
-    foreground=colors.app_launcher_colors["fg"],
-    fontsize=40,
     mouse_callbacks={
         "Button1": lazy.spawn([scripts + "rofi_run"]),
     },
-    # margin=3,
-    padding=10,
 )
 
 windowname_comp = widget.WindowName(
-    background=colors.windowname_colors["bg"],
     foreground=colors.windowname_colors["fg"],
+    background=colors.windowname_colors["bg"],
+    fontsize=16,
+    width=450,
+    padding=10,
+    # max_chars=50,
     # empty_group_string="╮(︶︿︶)╭  Nothing to See... ┬┴┬┴┤(･_├┬┴┬┴",
     fmt=" <i><b>{}</b></i>",
-    width=450,
-    fontsize=16,
-    padding=10,
     scroll=True,
     scroll_interval=0.02,
     scroll_delay=1,
-    # max_chars=50,
 )
 
+client_count_comp = widget.WindowCount(
+    background=colors.windowcount_colors["bg"],
+    foreground=colors.windowcount_colors["fg"],
+    fontsize=18,
+    padding=5,
+    show_zero=True,
+    fmt="╹{}╻",
+)
 
 groups_comp = widget.GroupBox(
-    active=colors.groupbox_colors["fg_occupied"],
-    inactive=colors.groupbox_colors["fg"],
-    background=colors.groupbox_colors["bg"],
-    block_highlight_text_color=colors.groupbox_colors["bg_focus"],
-    this_current_screen_border=colors.groupbox_colors["fg_focus"],
-    urgent_text=colors.groupbox_colors["fg_urgent"],
-    urgent_border=colors.groupbox_colors["bg_urgent"],
+    active=colors.groupbox_colors["fg_active"],  # active group font colour
+    inactive=colors.groupbox_colors["fg_inactive"],  # inactive group font colour
+    block_highlight_text_color=colors.groupbox_colors[
+        "fg_focus"
+    ],  # selected group font colour
+    urgent_text=colors.groupbox_colors["fg_urgent"],  # urgent group font color
+    #
+    background=colors.groupbox_colors["bg"],  # widget background color
+    this_current_screen_border=colors.groupbox_colors[
+        "bg_focus"
+    ],  # border or line colour for group on this screen when focused.
+    urgent_border=colors.groupbox_colors["bg_urgent"],  # urgent border or line color
+    #
     fontsize=25,
     padding=10,
     highlight_method="block",
@@ -62,53 +76,113 @@ groups_comp = widget.GroupBox(
     # this_screen_border=color["green2"],
 )
 
-client_count_comp = widget.WindowCount(
-    background=colors.windowcount_colors["bg"],
-    foreground=colors.windowcount_colors["fg"],
-    fmt="╹ <b>{}</b> ╻",
-    show_zero=True,
-    padding=5,
-    # fmt="(っO~O)っ {}",
-    # fmt='>(O・O)->{}',
-    # fmt='(っ˘̩╭╮˘̩)っ{}',
-    # fmt='(っO~O)っ{}',
-    # fmt='☆⌒(ゝ。∂){}',
-    # fmt='ʕ•ᴥ•ʔ{}',
-    # fmt='( ˘▽ ˘)っ♨{}',
-)
-
 layout_icon_comp = widget.CurrentLayoutIcon(
     background=colors.layout_colors["bg"],
     scale=1.0,
 )
+
+volume_comp = {
+    "sep1": widget.TextBox(
+        background=colors.volume_colors["bg"],
+    ),
+    "icon": widget.TextBox(
+        foreground=colors.volume_colors["fg"],
+        background=colors.volume_colors["bg"],
+        fontsize=26,
+        # padding=5,
+        fmt="󰓃",
+        mouse_callbacks={
+            "button1": lazy.spawn(["kitty", "alsamixer"]),
+        },
+    ),
+    "value": widget.Volume(
+        background=colors.volume_colors["bg"],
+        padding=10,
+        # emoji=true,
+        fmt="{}",
+        mouse_callbacks={
+            "button1": lazy.spawn(["kitty", "alsamixer"]),
+        },
+    ),
+}
+
+backlight_comp = {
+    "sep1": widget.TextBox(
+        background=colors.brightness_colors["bg"],
+    ),
+    "icon": widget.TextBox(
+        foreground=colors.brightness_colors["fg"],
+        background=colors.brightness_colors["bg"],
+        fontsize=26,
+        # padding=5,
+        fmt="󰃝",
+    ),
+    "value": widget.Backlight(
+        background=colors.brightness_colors["bg"],
+        padding=10,
+        # emoji=true,
+        backlight_name="intel_backlight",
+    ),
+}
+
+network_comp = {
+    "sep1": widget.TextBox(
+        background=colors.network_colors["bg"],
+    ),
+    "icon": widget.TextBox(
+        foreground=colors.network_colors["fg"],
+        background=colors.network_colors["bg"],
+        fontsize=26,
+        # padding=5,
+        fmt="󰤥",
+        mouse_callbacks={
+            "button1": lazy.spawn("networkmanager_dmenu"),
+        },
+    ),
+    "value": widget.Wlan(
+        foreground=colors.network_colors["fg"],
+        background=colors.network_colors["bg"],
+        # max_chars=12,
+        padding=10,
+        width=90,
+        scroll=True,
+        scroll_interval=0.05,
+        format="{essid}",
+        interface="wlp1s0",
+        mouse_callbacks={
+            "button1": lazy.spawn("networkmanager_dmenu"),
+        },
+    ),
+}
 
 battery_comp = {
     "sep1": widget.TextBox(
         background=colors.battery_colors["bg_icon"],
     ),
     "icon": widget.TextBox(
+        foreground=colors.battery_colors["fg_icon"],
         background=colors.battery_colors["bg_icon"],
         fmt="",
-        fontsize="26",
-        foreground=colors.battery_colors["fg_icon"],
+        fontsize=35,
         # padding=10,
     ),
     "sep2": widget.TextBox(
         background=colors.battery_colors["bg_icon"],
     ),
     "value": widget.Battery(
-        background=colors.battery_colors["bg"],
         foreground=colors.battery_colors["fg"],
-        # charge_char="󱐋",
-        # discharge_char="-",
-        # full_char="",
-        # format="{char} {percent:2.0%}",
-        format="{percent:2.0%}",
-        fontsize="16",
-        mouse_callbacks={
-            "Button1": lazy.spawn("xfce4-power-manager-settings"),
-        },
+        low_foreground=colors.battery_colors["fg_low"],
+        background=colors.battery_colors["bg"],
+        low_boreground=colors.battery_colors["bg_low"],
+        charge_char="󱐋",
+        discharge_char="",
+        full_char="",
+        fontsize=16,
         padding=10,
+        format="{char}{percent:2.0%}",
+        # mouse_callbacks={
+        #     "Button1": lazy.spawn("xfce4-power-manager-settings"),
+        # },
     ),
 }
 
@@ -117,10 +191,10 @@ time_comp = {
         background=colors.time_colors["bg_icon"],
     ),
     "icon": widget.TextBox(
+        foreground=colors.time_colors["fg_icon"],
         background=colors.time_colors["bg_icon"],
         fmt="",
-        fontsize="26",
-        foreground=colors.time_colors["fg_icon"],
+        fontsize=35,
         # padding=10,
     ),
     "sep2": widget.TextBox(
@@ -129,10 +203,10 @@ time_comp = {
     "value": widget.Clock(
         background=colors.time_colors["bg"],
         foreground=colors.time_colors["fg"],
-        font=default_font,
-        fontsize="16",
-        format="%I:%M %p",
+        fontsize=16,
         padding=10,
+        format="%I:%M %p",
+        font=default_font,
         mouse_callbacks={
             "Button1": lazy.spawn(["kitty", "calcure"]),
         },
@@ -144,98 +218,24 @@ date_comp = {
         background=colors.date_colors["bg_icon"],
     ),
     "icon": widget.TextBox(
+        foreground=colors.date_colors["fg_icon"],
         background=colors.date_colors["bg_icon"],
         fmt="󰃶",
-        fontsize="26",
-        foreground=colors.date_colors["fg"],
+        fontsize=26,
         # padding=5,
     ),
     "sep2": widget.TextBox(
         background=colors.date_colors["bg_icon"],
     ),
     "value": widget.Clock(
-        background=colors.date_colors["bg"],
         foreground=colors.date_colors["fg"],
-        format="%a %d-%m-%Y ",
-        fontsize="16",
+        background=colors.date_colors["bg"],
+        fontsize=16,
+        padding=10,
+        format="%a %d-%m-%Y",
         mouse_callbacks={
             "Button1": lazy.spawn(["kitty", "calcure"]),
         },
-        padding=10,
-    ),
-}
-
-volume_comp = {
-    "sep1": widget.TextBox(
-        background=colors.volume_colors["bg"],
-    ),
-    "icon": widget.TextBox(
-        background=colors.volume_colors["bg"],
-        foreground=colors.volume_colors["fg"],
-        fmt="󰓃",
-        fontsize="26",
-        mouse_callbacks={
-            "button1": lazy.spawn(["kitty", "alsamixer"]),
-        },
-        # padding=5,
-    ),
-    "value": widget.Volume(
-        background=colors.volume_colors["bg"],
-        # emoji=true,
-        fmt="{}",
-        mouse_callbacks={
-            "button1": lazy.spawn(["kitty", "alsamixer"]),
-        },
-        padding=10,
-    ),
-}
-
-backlight_comp = {
-    "sep1": widget.TextBox(
-        background=colors.brightness_colors["bg"],
-    ),
-    "icon": widget.TextBox(
-        background=colors.brightness_colors["bg"],
-        fmt="󰃝",
-        fontsize="26",
-        foreground=colors.brightness_colors["fg"],
-        # padding=5,
-    ),
-    "value": widget.Backlight(
-        background=colors.brightness_colors["bg"],
-        # emoji=true,
-        backlight_name="intel_backlight",
-        padding=10,
-    ),
-}
-
-network_comp = {
-    "sep1": widget.TextBox(
-        background=colors.network_colors["bg"],
-    ),
-    "icon": widget.TextBox(
-        background=colors.network_colors["bg"],
-        fmt="󰤥",
-        fontsize="26",
-        foreground=colors.network_colors["fg"],
-        mouse_callbacks={
-            "button1": lazy.spawn("networkmanager_dmenu"),
-        },
-        # padding=5,
-    ),
-    "value": widget.Wlan(
-        background=colors.network_colors["bg"],
-        foreground=colors.network_colors["fg"],
-        max_chars=12,
-        # width=90,
-        # scroll=True,
-        # scroll_interval=0.05,
-        format="{essid}",
-        interface="wlp1s0",
-        mouse_callbacks={
-            "button1": lazy.spawn("networkmanager_dmenu"),
-        },
-        padding=10,
     ),
 }
 
@@ -303,11 +303,11 @@ network = [
 tray = [
     widget.WidgetBox(
         name="traybox",
-        close_button_location="left",
-        fontsize=30,
         foreground=colors.tray_colors["bg"],
+        fontsize=30,
         text_closed="",
         text_open="",
+        close_button_location="left",
         widgets=separator_small
         + [
             widget.Systray(
@@ -320,20 +320,20 @@ tray = [
                 background=colors.tray_colors["bg"],
             ),
         ],
-    ),
+    )
 ]
 
 widgetbox_info = [
     widget.WidgetBox(
         name="infobox",
-        close_button_location="right",
         foreground=colors.widgetbox_colors["fg"],
         fontsize=25,
+        # padding=10,
         text_closed="",  # 󰸳
         text_open="",  # 󰸶
         # text_closed="",
         # text_open="",
-        # padding=10,
+        close_button_location="right",
         widgets=volume
         + separator_small
         + backlight

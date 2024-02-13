@@ -12,35 +12,25 @@ gaps_size = default_options["gaps_size"]
 
 layouts = [
     layout.Max(
-        border_focus=colors.titlebar_colors["border_focus"],
-        border_normal=colors.titlebar_colors["border_focus"],
+        border_normal=colors.client_colors["border"],
+        border_focus=colors.client_colors["border_focus"],
         border_width=2,
         margin=gaps_size,
     ),
     layout.Tile(
         add_after_last=True,
-        border_focus=colors.titlebar_colors["border_focus"],
+        border_normal=colors.client_colors["border"],
+        border_focus=colors.client_colors["border_focus"],
         border_width=2,
         margin=gaps_size,
         max_ratio=0.50,
         ratio=0.50,
     ),
-    # Try more layouts by unleashing below layouts.
-    # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=2, margin=10),
-    # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    # layout.MonadTall(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
 ]
 
 floating_layout = layout.Floating(
-    border_focus=colors.titlebar_colors["border_floating"],
-    border_normal=colors.titlebar_colors["border"],
+    border_focus=colors.client_colors["border_floating"],
+    border_normal=colors.client_colors["border"],
     border_width=2,
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.

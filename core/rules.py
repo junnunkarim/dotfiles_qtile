@@ -102,12 +102,6 @@ groups = [
             Match(wm_class="Virt-manager"),
         ],
     ),
-    # Group(
-    #     "10",
-    #     label="󰆩",
-    #     # label="",
-    #     matches=[],
-    # ),
 ]
 
 for i in groups:
@@ -134,7 +128,7 @@ for i in groups:
 groups.append(scratchpad)
 
 
-# Switch to a window's assigned group when it is opened
+# switch to a window's assigned group when it is opened
 @hook.subscribe.client_managed
 def auto_switch(window):
     if window.group.name != qtile.current_group.name:

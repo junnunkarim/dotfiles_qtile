@@ -14,24 +14,24 @@ date_comp = {
         background=colors.date_colors["bg_icon"],
     ),
     "icon": widget.TextBox(
+        foreground=colors.date_colors["fg_icon"],
         background=colors.date_colors["bg_icon"],
-        fmt="󰃶",
-        fontsize="26",
-        foreground=colors.date_colors["fg"],
+        fontsize=35,
         # padding=5,
+        fmt="󰃶",
     ),
     "sep2": widget.TextBox(
         background=colors.date_colors["bg_icon"],
     ),
     "value": ExpandingClock(
-        background=colors.date_colors["bg"],
         foreground=colors.date_colors["fg"],
+        background=colors.date_colors["bg"],
+        fontsize=16,
+        padding=10,
         format="%a %d-%m-%Y",
-        fontsize="16",
         # mouse_callbacks={
         #     "Button1": lazy.spawn(["alacritty", "-e", "calcure"]),
         # },
-        padding=10,
     ),
 }
 

@@ -3,12 +3,12 @@ import os
 
 from libqtile.config import Screen
 
-from options import default_apps, default_colorscheme, default_options
+from options import default_colorscheme
 
 from .bar import top_bar
 
 
-# dynamically load wallpapers
+# dynamic module loading
 def load_wallpapers_module():
     try:
         wallpapers_module = importlib.import_module(

@@ -1,7 +1,3 @@
-from libqtile import bar, layout, qtile, widget
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
-from libqtile.lazy import lazy
-
 import core.autostart
 from core.keymaps import *
 from core.layouts import *
@@ -9,32 +5,14 @@ from core.rules import *
 from options import default_font
 from ui.screens import *
 
-# from libqtile.utils import guess_terminal
-
-
-# Add key bindings to switch VTs in Wayland.
-# We can't check qtile.core.name in default config as it is loaded before qtile is started
-# We therefore defer the check until the key binding is run by using .when(func=...)
-
-# for vt in range(1, 8):
-#     keys.append(
-#         Key(
-#             ["control", "mod1"],
-#             f"f{vt}",
-#             lazy.core.change_vt(vt).when(func=lambda: qtile.core.name == "wayland"),
-#             desc=f"Switch to VT{vt}",
-#         )
-#     )
-
 widget_defaults = dict(
     font=default_font,
     fontsize=16,
     padding=0,
 )
-
 extension_defaults = widget_defaults.copy()
 dgroups_key_binder = None
-dgroups_app_rules = []  # type: list
+dgroups_app_rules = []
 follow_mouse_focus = True
 bring_front_click = False
 floats_kept_above = True

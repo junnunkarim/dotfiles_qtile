@@ -1,3 +1,16 @@
+everblush = {
+    "white": "#dadada",
+    "black": "#141b1e",
+    "black0": "#232a2d",
+    "gray": "#8c8c8c",
+    "cyan1": "#6cbfbf",
+    "green1": "#8ccf7e",
+    "yellow1": "#e5c76b",
+    "blue1": "#67b0e8",
+    "purple1": "#c47fd5",
+    "red1": "#e57474",
+}
+
 everforest = {
     "white": "#d3c6aa",
     "black": "#272e33",
@@ -48,6 +61,25 @@ gruvbox = {
     "orange0": "#af3a03",
     "orange1": "#d65d0e",
     "orange2": "#fe8019",
+}
+
+nord = {
+    "white": "#d8dee9",
+    "white1": "#e5e9f0",
+    "white2": "#eceff4",
+    "black": "#3b4254",
+    "black0": "#2e3440",
+    "black1": "#434c5e",
+    "black2": "#4c566a",
+    "blue1": "#8fbcbb",
+    "blue2": "#88c0d0",
+    "blue3": "#81a1c1",
+    "blue4": "#5e81ac",
+    "red1": "#bf616a",
+    "orange1": "#d08770",
+    "yellow1": "#ebcb8b",
+    "green1": "#a3be8c",
+    "purple1": "#b48ead",
 }
 
 rose_pine = {

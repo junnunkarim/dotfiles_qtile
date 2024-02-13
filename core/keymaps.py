@@ -64,6 +64,7 @@ keys = [
         desc="Toggle between layouts",
     ),
     Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
+    Key([mod], "m", lazy.window.toggle_minimize(), desc="Minimize focused window"),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "shift"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "l", lazy.spawn("slock"), desc="Lock Screen"),
@@ -97,6 +98,12 @@ keys = [
         "b",
         lazy.spawn([scripts + "rofi_buku"]),
         desc="Open buku",
+    ),
+    Key(
+        [mod],
+        "e",
+        lazy.spawn([scripts + "rofi_emoji"]),
+        desc="Open emoji selector",
     ),
     Key(
         [mod],

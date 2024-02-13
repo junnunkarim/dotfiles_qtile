@@ -3,6 +3,7 @@ from libqtile import bar
 from core.helper import load_module
 from options import default_bar_type, default_colorscheme, default_options
 
+# dynamic module loading
 colorscheme_module_path = f"themes.colorschemes.{default_colorscheme}.colors"
 colors = load_module(colorscheme_module_path)
 
@@ -11,6 +12,7 @@ w = load_module(widgets_module_path)
 
 custom_widgets_module_path = f"widgets.{default_bar_type}.custom_widgets"
 cw = load_module(custom_widgets_module_path)
+# ---------------------
 
 widget_list = (
     w.app_launcher
@@ -37,15 +39,14 @@ gaps_size = default_options["gaps_size"]
 
 top_bar = bar.Bar(
     widget_list,
-    30,
+    size=30,
     background=colors.bar_colors["bg"],
-    # opacity=0.9,
-    margin=[gaps_size, gaps_size, 0, gaps_size],  # [up, left, down, left]
-    border_width=[5, 5, 5, 5],  # Draw top and bottom borders
+    margin=[gaps_size, gaps_size, 0, gaps_size],  # [top, right, bottom, left]
+    border_width=[5, 5, 5, 5],  # [top, right, bottom, left]
     border_color=[
-        colors.bar_colors["bg"],
-        colors.bar_colors["bg"],
-        colors.bar_colors["bg"],
-        colors.bar_colors["bg"],
-    ],  # Borders are magenta
+        colors.bar_colors["border"],
+        colors.bar_colors["border"],
+        colors.bar_colors["border"],
+        colors.bar_colors["border"],
+    ],
 )

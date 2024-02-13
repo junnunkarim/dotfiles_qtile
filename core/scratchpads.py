@@ -24,7 +24,7 @@ dropdowns = [
     ),
     DropDown(
         "task_manager",
-        "alacritty -e btop",
+        "kitty btop",
         width=0.8,
         height=0.8,
         x=0.1,

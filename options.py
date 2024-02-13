@@ -1,4 +1,4 @@
-default_colorscheme = "everforest"
+default_colorscheme = "rose_pine"
 default_bar_type = "horizontal"
 default_font = "Iosevka Nerd Font Mono"
 # default_font = "CozetteVector"
