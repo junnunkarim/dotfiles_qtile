@@ -1,3 +1,5 @@
+from libqtile.backend.wayland import InputConfig
+
 import core.autostart
 from core.keymaps import *
 from core.layouts import *
@@ -26,7 +28,15 @@ reconfigure_screens = True
 auto_minimize = True
 
 # When using the Wayland backend, this can be used to configure input devices.
-wl_input_rules = None
+wl_input_rules = {
+    "1267:12448:ELAN0723:00 04F3:30A0 Touchpad": InputConfig(tap=True),
+    "*": InputConfig(pointer_accel=True),
+    "type:keyboard": InputConfig(
+        kb_options="caps:escape,grp:shifts_toggle,grp_led:caps",
+        kb_layout="us,us",
+        kb_variant="dvorak,",
+    ),
+}
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the

@@ -1,4 +1,4 @@
-from libqtile import bar
+from libqtile import bar, qtile
 
 from core.helper import load_module
 from options import default_bar_type, default_colorscheme, default_options
@@ -14,26 +14,46 @@ custom_widgets_module_path = f"widgets.{default_bar_type}.custom_widgets"
 cw = load_module(custom_widgets_module_path)
 # ---------------------
 
-widget_list = (
-    w.app_launcher
-    + w.separator_small
-    + w.tray
-    + w.windowname
-    + w.separator_auto
-    + w.client_count
-    + w.separator_small
-    + w.groups
-    + w.separator_small
-    + w.layout_icon
-    + w.separator_auto
-    + w.widgetbox_info
-    + w.separator_small
-    + w.battery
-    + w.separator_small
-    + w.time
-    + w.separator_small
-    + cw.date
-)
+if qtile.core.name == "x11":
+    widget_list = (
+        w.app_launcher
+        + w.separator_small
+        + w.tray
+        + w.windowname
+        + w.separator_auto
+        + w.client_count
+        + w.separator_small
+        + w.groups
+        + w.separator_small
+        + w.layout_icon
+        + w.separator_auto
+        + w.widgetbox_info
+        + w.separator_small
+        + w.battery
+        + w.separator_small
+        + w.time
+        + w.separator_small
+        + cw.date
+    )
+elif qtile.core.name == "wayland":
+    widget_list = (
+        w.app_launcher
+        + w.windowname
+        + w.separator_auto
+        + w.client_count
+        + w.separator_small
+        + w.groups
+        + w.separator_small
+        + w.layout_icon
+        + w.separator_auto
+        + w.widgetbox_info
+        + w.separator_small
+        + w.battery
+        + w.separator_small
+        + w.time
+        + w.separator_small
+        + cw.date
+    )
 
 gaps_size = default_options["gaps_size"]
 

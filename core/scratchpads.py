@@ -1,12 +1,19 @@
+from libqtile import qtile
 from libqtile.config import DropDown, Key, ScratchPad
 from libqtile.lazy import lazy
 
 from .keymaps import keys, mod
 
+if qtile.core.name == "x11":
+    drop_terminal = "konsole --name scratch_term"
+# wayland
+else:
+    drop_terminal = "konsole"
+
 dropdowns = [
     DropDown(
         "term",
-        "konsole --name scratch_term",
+        drop_terminal,
         width=0.7,
         height=0.7,
         x=0.165,

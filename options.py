@@ -1,7 +1,7 @@
 import os
 
-default_colorscheme = "rose_pine"
-default_bar_type = "horizontal"
+default_colorscheme = "everforest"
+default_bar_type = "horizontal"  # currently vertical is not supported
 default_font = "Iosevka Nerd Font Mono"
 
 home = os.path.expanduser("~")
