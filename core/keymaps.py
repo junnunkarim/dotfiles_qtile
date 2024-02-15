@@ -68,10 +68,10 @@ keys = [
         desc="Toggle between layouts",
     ),
     Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod], "m", lazy.window.toggle_minimize(), desc="Minimize focused window"),
+    Key([mod], "i", lazy.window.toggle_minimize(), desc="Minimize focused window"),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "shift"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "l", lazy.spawn("slock"), desc="Lock Screen"),
+    Key([mod], "l", lazy.spawn("betterlockscreen -l"), desc="Lockscreen"),
     # rofi menus
     Key(
         [mod],
@@ -199,14 +199,15 @@ keys = [
     Key([mod, alt], "b", lazy.spawn(web_browser), desc="Open default web browser"),
     Key([mod, alt], "e", lazy.spawn("firefox"), desc="Open Firefox"),
     # file manager
-    Key([mod, alt], "f", lazy.spawn(file_manager), desc="Open file manager"),
+    Key([mod, alt], "t", lazy.spawn(file_manager), desc="Open file manager"),
     # cli programs
-    Key(
-        [mod, alt],
-        "n",
-        lazy.spawn([home + "/.bin/nnn_run"]),
-        desc="Open NNN file manager",
-    ),
+    # Key(
+    #     [mod, alt],
+    #     "n",
+    #     lazy.spawn([home + "/.bin/nnn_run"]),
+    #     desc="Open NNN file manager",
+    # ),
+    Key([mod, alt], "f", lazy.spawn("kitty felix"), desc="Open TUI file manager"),
     Key([mod, alt], "v", lazy.spawn(text_editor), desc="Open text editor"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.

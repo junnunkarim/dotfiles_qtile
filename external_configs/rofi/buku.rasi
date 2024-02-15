@@ -128,7 +128,7 @@ inputbar {
   children: [ "entry", "prompt" ];
 
   padding: 5px 0px; // top-bottom left-right
-  border: 0px 0px 1px 6px solid;
+  border: 0px 0px 0px 6px solid;
 
   border-color: var(active);
   text-color: var(foreground);
@@ -148,7 +148,7 @@ inputbar {
     text-color: inherit;
   }
   prompt {
-    padding: 10px;
+    padding: 10px 10px 10px 20px;
     margin: 0px 10px;
 
     background-color: var(active);

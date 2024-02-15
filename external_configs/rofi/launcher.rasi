@@ -112,7 +112,7 @@ inputbar {
 
   padding: 5px 0px; // top-bottom left-right
   margin: 10px 0px; // top-bottom left-right
-  border: 0px 0px 1px 6px solid;
+  border: 0px 0px 0px 6px solid;
 
   border-color: var(active);
   text-color: var(foreground);
@@ -146,16 +146,16 @@ inputbar {
     button {
       width: 125px;
       padding: inherit;
-      border: 0px 0px 2px 2px solid;
+      border: 0px 0px 2px 0px solid;
 
       border-color: var(active);
       background-color: var(background-1);
       text-color: var(foreground);
     }
     button.selected {
-      border: 0px 0px 6px 2px solid;
+      //border: 0px 2px 6px 2px solid;
 
-      border-color: var(active);
-      background-color: var(background);
-      text-color: var(foreground);
+      //border-color: var(background);
+      background-color: var(active);
+      text-color: var(background);
     }
