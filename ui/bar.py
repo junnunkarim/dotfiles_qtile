@@ -35,7 +35,7 @@ if qtile.core.name == "x11":
         + w.separator_small
         + cw.date
     )
-elif qtile.core.name == "wayland":
+else:
     widget_list = (
         w.app_launcher
         + w.windowname

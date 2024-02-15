@@ -42,16 +42,23 @@ dropdowns = [
 
 keys.extend(
     [
-        Key([mod, "shift"], "Return", lazy.group["scratchpad"].dropdown_toggle("term")),
+        Key(
+            [mod, "shift"],
+            "Return",
+            lazy.group["scratchpad"].dropdown_toggle("term"),
+            desc="Terminal (dropdown)",
+        ),
         Key(
             [mod, "shift"],
             "BackSpace",
             lazy.group["scratchpad"].dropdown_toggle("password_manager"),
+            desc="Password manager (dropdown)",
         ),
         Key(
             [mod, "shift"],
             "h",
             lazy.group["scratchpad"].dropdown_toggle("task_manager"),
+            desc="Task manager (btop) (dropdown)",
         ),
     ]
 )

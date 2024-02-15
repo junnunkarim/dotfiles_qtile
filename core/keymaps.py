@@ -6,6 +6,29 @@ from libqtile.utils import guess_terminal
 
 from options import default_apps, default_options
 
+
+# Credit - user NaBaCo on IRC
+def show_keybindings(keys):
+    key_help = ""
+    for k in keys:
+        mods = ""
+
+        for m in k.modifiers:
+            if m == "mod4":
+                mods += "Super + "
+            else:
+                mods += m.capitalize() + " + "
+
+        if len(k.key) > 1:
+            mods += k.key.capitalize()
+        else:
+            mods += k.key
+
+        key_help += "{:<30} {}".format(mods, k.desc + "\n")
+
+    return key_help
+
+
 mod, alt, ctrl = (
     default_options["mod"],
     default_options["alt"],
@@ -31,83 +54,91 @@ keys = [
         [mod, "shift"],
         "w",
         lazy.widget["infobox"].toggle(),
-        desc="Toggle WidgetBox of the bar",
+        desc="Toggle more widgets visibility",
     ),
     Key(
         [mod, "shift"],
         "t",
         lazy.widget["traybox"].toggle(),
-        desc="Toggle WidgetBox of the bar",
+        desc="Toggle tray visibility",
     ),
     # cycle through windows and groups
     Key(
         [mod],
         "Tab",
         lazy.screen.next_group(skip_empty=True),
-        desc="Cycle through octive groups clockwise",
+        desc="Cycle through active groups clockwise",
     ),
     Key(
         [mod],
         "grave",
         lazy.screen.prev_group(skip_empty=True),
-        desc="Cycle through octive groups anti-clockwise",
+        desc="Cycle through active groups anti-clockwise",
     ),
     Key(
-        [alt], "Tab", lazy.group.next_window(), desc="Move window focus to other window"
+        [alt],
+        "Tab",
+        lazy.group.next_window(),
+        desc="Cycle through windows of current group clockwise",
     ),
     Key(
         [alt],
         "grave",
         lazy.group.prev_window(),
-        desc="Move window focus to other window",
+        desc="Cycle through windows of current group anti-clockwise",
     ),
     Key(
         [mod, ctrl, "shift"],
         "space",
         lazy.next_layout(),
-        desc="Toggle between layouts",
+        desc="Cycle between layouts",
     ),
-    Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod], "i", lazy.window.toggle_minimize(), desc="Minimize focused window"),
-    Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
+    Key([mod], "c", lazy.window.kill(), desc="Close/quit focused window"),
+    Key(
+        [mod],
+        "i",
+        lazy.window.toggle_minimize(),
+        desc="Toggle minimize of focused window",
+    ),
+    Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload Qtile config"),
     Key([mod, "shift"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "l", lazy.spawn("betterlockscreen -l"), desc="Lockscreen"),
+    Key([mod], "l", lazy.spawn("betterlockscreen -l"), desc="Lock screen"),
     # rofi menus
     Key(
         [mod],
         "d",
         lazy.spawn([scripts + "rofi_run"]),
-        desc="Open App Launcher",
+        desc="Open app-launcher",
     ),
     Key(
         [mod],
         "x",
         lazy.spawn([scripts + "powermenu"]),
-        desc="Open PowerMenu",
+        desc="Open powermenu",
     ),
     Key(
         [mod],
         "h",
         lazy.spawn([scripts + "rofi_clip"]),
-        desc="Open Clipboard",
+        desc="Open clipboard",
     ),
     Key(
         [mod],
         "r",
         lazy.spawn([scripts + "rofi_calc"]),
-        desc="Open Calculator",
+        desc="Open calculator",
     ),
     Key(
         [mod, "shift"],
         "b",
         lazy.spawn([scripts + "rofi_buku"]),
-        desc="Open buku",
+        desc="Open bookmark manager (buku)",
     ),
     Key(
         [mod],
         "e",
         lazy.spawn([scripts + "rofi_emoji"]),
-        desc="Open emoji selector",
+        desc="Open emoji-selector",
     ),
     Key(
         [mod],
@@ -115,91 +146,91 @@ keys = [
         lazy.spawn([scripts + "theme_switcher"]),
         desc="Open theme-switcher",
     ),
-    Key([mod], "n", lazy.spawn("networkmanager_dmenu"), desc="Open Network Manager"),
+    Key([mod], "n", lazy.spawn("networkmanager_dmenu"), desc="Open network manager"),
     ##---------- System Keys ----------##
     Key(
         [],
         "XF86MonBrightnessUp",
         lazy.spawn('brightnessctl -d "intel_backlight" set +2%'),
-        desc="Raise Brightness",
+        desc="Raise brightness",
     ),
     Key(
-        [],
+        [mod],
         "F2",
         lazy.spawn('brightnessctl -d "intel_backlight" set +2%'),
-        desc="Raise Brightness",
+        desc="Raise brightness",
     ),
     Key(
         [],
         "XF86MonBrightnessDown",
         lazy.spawn('brightnessctl -d "intel_backlight" set 2%-'),
-        desc="Lower Brightness",
+        desc="Lower brightness",
     ),
     Key(
-        [],
+        [mod],
         "F1",
         lazy.spawn('brightnessctl -d "intel_backlight" set 2%-'),
-        desc="Lower Brightness",
+        desc="Lower brightness",
     ),
     Key(
         [],
         "XF86AudioLowerVolume",
         # lazy.spawn("pactl set-sink-volume 0 -2%"),
         lazy.spawn("pulsemixer --change-volume -5 --max-volume 100"),
-        desc="Lower Volume",
+        desc="Lower volume",
     ),
     Key(
-        [],
+        [mod],
         "F5",
         lazy.spawn("pulsemixer --change-volume -5 --max-volume 100"),
-        desc="Lower Volume",
+        desc="Lower volume",
     ),
     Key(
         [],
         "XF86AudioRaiseVolume",
         # lazy.spawn("pactl set-sink-volume 0 +2%"),
         lazy.spawn("pulsemixer --change-volume +5 --max-volume 100"),
-        desc="Raise Volume",
+        desc="Raise volume",
     ),
     Key(
-        [],
+        [mod],
         "F6",
         lazy.spawn("pulsemixer --change-volume +5 --max-volume 100"),
-        desc="Raise Volume",
+        desc="Raise volume",
     ),
     Key(
         [],
         "XF86AudioMute",
         # lazy.spawn("pactl set-sink-mute 0 toggle"),
         lazy.spawn("pulsemixer --toggle-mute"),
-        desc="Mute Volume",
+        desc="Mute volume",
     ),
-    Key([], "F7", lazy.spawn("pulsemixer --toggle-mute"), desc="Mute Volume"),
+    Key([mod], "F7", lazy.spawn("pulsemixer --toggle-mute"), desc="Mute volume"),
     Key(
         [],
         "Print",
         lazy.spawn(["flameshot", "full", "-p", home + "/Pictures/SS/"]),
-        desc="Take Screenshot",
+        desc="Take screenshot",
     ),
-    Key([mod], "Print", lazy.spawn("flameshot gui"), desc="Open Flameshot GUI"),
+    Key([mod], "Print", lazy.spawn("flameshot gui"), desc="Open flameshot (gui)"),
     Key(
         [alt],
         "Print",
         lazy.spawn(["flameshot", "full", "-d", "5000", "-p", home + "/Pictures/SS/"]),
-        desc="Take Screenshot after 5 seconds",
+        desc="Take screenshot after 5 seconds",
     ),
     Key(
         ["shift"],
         "Print",
         lazy.spawn(["flameshot", "full", "-d", "10000", "-p", home + "/Pictures/SS/"]),
-        desc="Take Screenshot after 10 seconds",
+        desc="Take screenshot after 10 seconds",
     ),
     ##---------- Applications (super + alt) ----------##
     # web browser
     Key([mod, alt], "b", lazy.spawn(web_browser), desc="Open default web browser"),
-    Key([mod, alt], "e", lazy.spawn("firefox"), desc="Open Firefox"),
+    Key([mod, alt], "e", lazy.spawn("firefox"), desc="Open firefox"),
     # file manager
-    Key([mod, alt], "t", lazy.spawn(file_manager), desc="Open file manager"),
+    Key([mod, alt], "t", lazy.spawn(file_manager), desc="Open file manager (thunar)"),
     # cli programs
     # Key(
     #     [mod, alt],
@@ -207,8 +238,10 @@ keys = [
     #     lazy.spawn([home + "/.bin/nnn_run"]),
     #     desc="Open NNN file manager",
     # ),
-    Key([mod, alt], "f", lazy.spawn("kitty felix"), desc="Open TUI file manager"),
-    Key([mod, alt], "v", lazy.spawn(text_editor), desc="Open text editor"),
+    Key(
+        [mod, alt], "f", lazy.spawn("kitty felix"), desc="Open TUI file manager (felix)"
+    ),
+    Key([mod, alt], "v", lazy.spawn(text_editor), desc="Open text editor (neovim)"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
     # Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
@@ -221,7 +254,7 @@ keys = [
     Key([mod, ctrl], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
     Key([mod, ctrl], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key([mod, ctrl], "k", lazy.layout.grow_up(), desc="Grow window up"),
-    # Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+    # Key([mod, ctrl], "space", lazy.layout.normalize(), desc="Reset all window sizes"),
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
@@ -233,20 +266,37 @@ keys = [
         [mod, ctrl],
         "r",
         lazy.spawn("redshift -P -O 5000"),
-        desc="Turn on Bluelight filter",
+        desc="Turn on bluelight filter",
     ),
-    Key([mod, ctrl], "n", lazy.spawn("redshift -x"), desc="Turn on Bluelight filter"),
+    Key([mod, ctrl], "n", lazy.spawn("redshift -x"), desc="Turn on bluelight filter"),
     Key(
         [mod, ctrl],
         "v",
         lazy.spawn("redshift -P -O 3500"),
-        desc="Turn on Bluelight filter",
+        desc="Turn on bluelight filter (intense)",
     ),
     # X11 compositor
-    Key([mod, ctrl], "p", lazy.spawn("picom"), desc="Turn on Picom"),
-    Key([mod, ctrl], "u", lazy.spawn("pkill picom"), desc="Turn off Picom"),
-    Key([mod, ctrl], "g", lazy.spawn("gpick"), desc="Open Color Picker"),
+    Key([mod, ctrl], "p", lazy.spawn("picom"), desc="Turn on compositor (picom)"),
+    Key(
+        [mod, ctrl], "u", lazy.spawn("pkill picom"), desc="Turn off compositor (picom)"
+    ),
+    Key([mod, ctrl], "g", lazy.spawn("gpick"), desc="Open color-picker"),
 ]
+
+keys.extend(
+    [
+        Key(
+            [mod],
+            "k",
+            lazy.spawn(
+                "sh -c 'echo \""
+                + show_keybindings(keys)
+                + '" | rofi -dmenu -i -theme $HOME/.config/qtile/external_configs/rofi/script_menu_1.rasi -p "󰌌" -mesg "Keyboard shortcuts"\''
+            ),
+            desc="Show keybindings",
+        ),
+    ]
+)
 
 # Drag floating layouts.
 mouse = [
