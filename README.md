@@ -55,6 +55,8 @@ Here are some details about my setup:
 <details>
 <summary><b>Open Keybindings</b></summary>
 
+<br>
+
 | **Keybinding (System main)**                               | **Action**                                            |
 | ---------------------------------------------------------- | ----------------------------------------------------- |
 | <kbd>super</kbd> + <kbd>Return</kbd>                       | Launch terminal                                       |
@@ -87,6 +89,8 @@ Here are some details about my setup:
 | <kbd>alt</kbd> + <kbd>Tab</kbd>                            | Cycle through windows of current group clockwise      |
 | <kbd>alt</kbd> + <kbd>grave</kbd>                          | Cycle through windows of current group anti-clockwise |
 
+<br>
+
 | **Keybinding (System low-priority)**                                        | **Action**                         |
 | --------------------------------------------------------------------------- | ---------------------------------- |
 | <kbd>super</kbd> + <kbd>control</kbd> + <kbd>h</kbd>                        | Grow window to the left            |
@@ -101,6 +105,8 @@ Here are some details about my setup:
 | <kbd>super</kbd> + <kbd>control</kbd> + <kbd>g</kbd>                        | Open color-picker                  |
 | <kbd>super</kbd> + <kbd>control</kbd> + <kbd>shift</kbd> + <kbd>space</kbd> | Cycle between layouts              |
 
+<br>
+
 | **Keybinding (System Keys)**        | **Action**                       |
 | ----------------------------------- | -------------------------------- |
 | <kbd>super</kbd> + <kbd>F2</kbd>    | Raise brightness                 |
@@ -113,6 +119,8 @@ Here are some details about my setup:
 | <kbd>alt</kbd> + <kbd>Print</kbd>   | Take screenshot after 5 seconds  |
 | <kbd>shift</kbd> + <kbd>Print</kbd> | Take screenshot after 10 seconds |
 
+<br>
+
 | **Keybinding (Open Applications)**               | **Action**                    |
 | ------------------------------------------------ | ----------------------------- |
 | <kbd>super</kbd> + <kbd>alt</kbd> + <kbd>b</kbd> | Open default web browser      |
@@ -120,6 +128,8 @@ Here are some details about my setup:
 | <kbd>super</kbd> + <kbd>alt</kbd> + <kbd>t</kbd> | Open file manager (thunar)    |
 | <kbd>super</kbd> + <kbd>alt</kbd> + <kbd>f</kbd> | Open TUI file manager (felix) |
 | <kbd>super</kbd> + <kbd>alt</kbd> + <kbd>v</kbd> | Open text editor (neovim)     |
+
+<br>
 
 ![img](/scripts/keymap_ss/mod1.png)
 ![img](/scripts/keymap_ss/mod4-control-shift.png)
