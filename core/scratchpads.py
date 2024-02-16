@@ -23,9 +23,9 @@ dropdowns = [
     DropDown(
         "password_manager",
         "keepassxc",
-        width=0.6,
-        height=0.6,
-        x=0.2,
+        width=0.8,
+        height=0.8,
+        x=0.1,
         y=0.1,
         on_focus_lost_hide=False,
     ),

@@ -1,6 +1,6 @@
 import os
 
-default_colorscheme = "nord"
+default_colorscheme = "rose_pine"
 default_bar_type = "horizontal"  # currently vertical is not supported
 default_font = "Iosevka Nerd Font Mono"
 
