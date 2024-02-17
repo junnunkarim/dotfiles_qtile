@@ -131,14 +131,14 @@ Here are some details about my setup:
 
 <br>
 
-![img](/scripts/keymap_ss/mod1.png)
-![img](/scripts/keymap_ss/mod4-control-shift.png)
-![img](/scripts/keymap_ss/mod4-control.png)
-![img](/scripts/keymap_ss/mod4-mod1.png)
-![img](/scripts/keymap_ss/mod4-shift.png)
-![img](/scripts/keymap_ss/mod4.png)
-![img](/scripts/keymap_ss/no_modifier.png)
-![img](/scripts/keymap_ss/shift.png)
+<!-- ![img](/scripts/keymap_ss/mod1.png) -->
+<!-- ![img](/scripts/keymap_ss/mod4-control-shift.png) -->
+<!-- ![img](/scripts/keymap_ss/mod4-control.png) -->
+<!-- ![img](/scripts/keymap_ss/mod4-mod1.png) -->
+<!-- ![img](/scripts/keymap_ss/mod4-shift.png) -->
+<!-- ![img](/scripts/keymap_ss/mod4.png) -->
+<!-- ![img](/scripts/keymap_ss/no_modifier.png) -->
+<!-- ![img](/scripts/keymap_ss/shift.png) -->
 
 </details>
 

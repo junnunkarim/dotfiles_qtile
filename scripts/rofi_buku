@@ -36,9 +36,9 @@ then
     echo "User config file '~/.config/qtile/external_configs/rofi-buku/config' not found. using global config"
   fi
 else
-  if [[ -f "${XDG_CONFIG_DIR}/rofi-buku/config" ]]
+  if [[ -f "${XDG_CONFIG_DIR}/qtile/external_configs/rofi-buku/config" ]]
   then
-    source "${XDG_CONFIG_DIR}/rofi-buku/config"
+    source "${XDG_CONFIG_DIR}/qtile/external_configs/rofi-buku/config"
   else
     echo "User config file '~/.config/rofi-buku/config' not found. using global config"
   fi
