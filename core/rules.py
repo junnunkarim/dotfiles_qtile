@@ -24,6 +24,7 @@ groups = [
         label="",
         matches=[
             Match(wm_class="Geany"),
+            Match(wm_class="code-oss"),
             Match(wm_class="jetbrains-idea-ce"),
             Match(wm_class="jetbrains-pycharm"),
             Match(wm_class="jetbrains-dataspell"),
