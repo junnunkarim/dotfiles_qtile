@@ -154,6 +154,15 @@
 <details>
 <summary><b>Reveal those glorious screenshots</b></summary>
 
+<h3 align="center"><u>Dracula</u></h3>
+
+![img](/ss/qtile_dracula_1.png)
+
+![img](/ss/qtile_dracula_2.png)
+
+![img](/ss/qtile_dracula_3.png)
+
+
 <h3 align="center"><u>Everforest</u></h3>
 
 ![img](/ss/qtile_everforest_1.png)
