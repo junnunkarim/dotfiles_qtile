@@ -149,7 +149,7 @@
 
 > [!NOTE]
 >
-> **The screenshots might be old**  
+> **Overtime the screenshots might get outdated.**  
 
 <details>
 <summary><b>Reveal those glorious screenshots</b></summary>
