@@ -4,7 +4,7 @@
 
 # System Information
 
-Here are some details about my setup:
+<h4 align="center"><u>Some details about my setup</u></h4>
 
 - OS: [Arch Linux](https://archlinux.org/)
 - Terminal: [Kitty](https://github.com/kovidgoyal/kitty)
@@ -44,16 +44,19 @@ Here are some details about my setup:
 
 # Default Keybindings
 
-> **Standards** <br>
-> super + [any key] == system main shortcuts <br>
-> super + shift + [any key] == system main shortcuts <br>
-> super + ctrl + shift + [any key] == system low priority shortcuts <br>
-> super + alt + shift + [any key] == system low priority shortcuts <br>
-> super + alt + [any num or alphabet key] == open applications <br>
-> super + ctrl + [any num or alpabet key] == open other programs or scripts <br>
+> [!NOTE]
+>
+> **Standards**  
+>
+> super + [any key] == system main shortcuts  
+> super + shift + [any key] == system main shortcuts  
+> super + ctrl + shift + [any key] == system low priority shortcuts  
+> super + alt + shift + [any key] == system low priority shortcuts  
+> super + alt + [any num or alphabet key] == open applications  
+> super + ctrl + [any num or alpabet key] == open other programs or scripts  
 
 <details>
-<summary><b>Open Keybindings</b></summary>
+<summary><b>Reveal those pleasant keybindings</b></summary>
 
 <br>
 
@@ -145,30 +148,39 @@ Here are some details about my setup:
 # Screenshots
 
 <details>
-<summary><b>Open Screenshots</b></summary>
+<summary><b>Reveal those glorious screenshots</b></summary>
 
-## Everforest
+<h3 align="center"><u>Everforest</u></h3>
 
 ![img](/ss/qtile_everforest_1.png)
+
 ![img](/ss/qtile_everforest_2.png)
+
 ![img](/ss/qtile_everforest_3.png)
 
-## Gruvbox
+
+<h3 align="center"><u>Gruvbox</u></h3>
 
 ![img](/ss/qtile_gruvbox_1.png)
+
 ![img](/ss/qtile_gruvbox_2.png)
+
 ![img](/ss/qtile_gruvbox_3.png)
 
-## Nord
+<h3 align="center"><u>Nord</u></h3>
 
 ![img](/ss/qtile_nord_1.png)
+
 ![img](/ss/qtile_nord_2.png)
+
 ![img](/ss/qtile_nord_3.png)
 
-## Rose Pine
+<h3 align="center"><u>Rose Pine</u></h3>
 
 ![img](/ss/qtile_rose-pine_1.png)
+
 ![img](/ss/qtile_rose-pine_2.png)
+
 ![img](/ss/qtile_rose-pine_3.png)
 
 </details>

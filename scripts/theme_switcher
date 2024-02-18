@@ -80,16 +80,16 @@ case $select in
     switch_alacritty_colorscheme catppuccin_macchiato
     switch_nvim_colorscheme base16-catppuccin
     switch_btop_colorscheme catppuccin_macchiato
-    switch_helix_colorscheme catppuccin_mocha
+    # switch_helix_colorscheme catppuccin_mocha
     ;;
   $colorscheme2)
     switch_theme dracula
     switch_gtk_theme Dracula
-    switch_wzterm_colorscheme "Dracula"
+    # switch_wzterm_colorscheme "Dracula"
     switch_alacritty_colorscheme dracula
     switch_nvim_colorscheme base16-dracula
     switch_btop_colorscheme dracula
-    switch_helix_colorscheme dracula
+    # switch_helix_colorscheme dracula
     ;;
   $colorscheme3)
     switch_theme everblush
@@ -103,7 +103,7 @@ case $select in
     switch_alacritty_colorscheme everforest_hard
     switch_nvim_colorscheme base16-everforest
     switch_btop_colorscheme everforest_dark_hard
-    switch_helix_colorscheme everforest_dark
+    # switch_helix_colorscheme everforest_dark
     ;;
   $colorscheme5)
     switch_theme gruvbox
@@ -111,7 +111,7 @@ case $select in
     switch_alacritty_colorscheme gruvbox
     switch_nvim_colorscheme base16-gruvbox-dark-medium
     switch_btop_colorscheme gruvbox_dark
-    switch_helix_colorscheme gruvbox_dark_hard
+    # switch_helix_colorscheme gruvbox_dark_hard
     ;;
   $colorscheme6)
     switch_theme nord
@@ -120,15 +120,15 @@ case $select in
     switch_alacritty_colorscheme nord
     switch_nvim_colorscheme base16-nord
     switch_btop_colorscheme nord
-    switch_helix_colorscheme nord
+    # switch_helix_colorscheme nord
     ;;
   $colorscheme7)
     switch_theme rose_pine
     switch_gtk_theme rose-pine-gtk
-    switch_wzterm_colorscheme "Catppuccin Mocha"
+    # switch_wzterm_colorscheme "Catppuccin Mocha"
     switch_alacritty_colorscheme rose-pine
     switch_nvim_colorscheme base16-rose-pine
-    switch_btop_colorscheme catppuccin_mocha
-    switch_helix_colorscheme rose_pine
+    switch_btop_colorscheme rose_pine
+    # switch_helix_colorscheme rose_pine
     ;;
   esac

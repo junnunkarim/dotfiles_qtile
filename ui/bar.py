@@ -33,7 +33,7 @@ if qtile.core.name == "x11":
         + w.separator_small
         + w.time
         + w.separator_small
-        + cw.date
+        + w.date
     )
 else:
     widget_list = (
@@ -52,7 +52,7 @@ else:
         + w.separator_small
         + w.time
         + w.separator_small
-        + cw.date
+        + w.date
     )
 
 gaps_size = default_options["gaps_size"]
