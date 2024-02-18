@@ -1,3 +1,17 @@
+dracula = {
+    "black0": "#282a36",
+    "black1": "#44475a",
+    "black2": "#6272a4",
+    "white": "#f8f8f2",
+    "cyan": "#8be9fd",
+    "green": "#50fa7b",
+    "orange": "#ffb86c",
+    "pink": "#ff79c6",
+    "purple": "#bd93f9",
+    "red": "#ff5555",
+    "yellow": "#f1fa8c",
+}
+
 everblush = {
     "white": "#dadada",
     "black": "#141b1e",

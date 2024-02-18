@@ -147,6 +147,10 @@
 
 # Screenshots
 
+> [!NOTE]
+>
+> **The screenshots might be old**  
+
 <details>
 <summary><b>Reveal those glorious screenshots</b></summary>
 
