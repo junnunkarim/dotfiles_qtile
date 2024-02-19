@@ -1,6 +1,6 @@
 <h1 align="center"><i><u>Qtile Config</u></i></h1>
 
-![img](/ss/qtile_heading_image.png)
+![img](/ss/qtile_unixporn.png)
 
 # System Information
 
@@ -147,12 +147,21 @@
 
 # Screenshots
 
-> [!NOTE]
+> [!WARNING]
 >
 > **Overtime the screenshots might get outdated.**  
 
 <details>
 <summary><b>Reveal those glorious screenshots</b></summary>
+
+<h3 align="center"><u>Catppuccin</u></h3>
+
+![img](/ss/qtile_catppuccin_1.png)
+
+![img](/ss/qtile_catppuccin_2.png)
+
+![img](/ss/qtile_catppuccin_3.png)
+
 
 <h3 align="center"><u>Dracula</u></h3>
 
@@ -195,5 +204,14 @@
 ![img](/ss/qtile_rose-pine_2.png)
 
 ![img](/ss/qtile_rose-pine_3.png)
+
+</details>
+
+# TODO
+
+<details>
+<summary><h4>Reveal stuffs that needs to be implemented</h4></summary>
+
+> **Under-Construction**
 
 </details>

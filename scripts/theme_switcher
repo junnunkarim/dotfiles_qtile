@@ -69,7 +69,7 @@ colorscheme6=" Nord"
 colorscheme7=" Rosé Pine"
 
 # Variable to pass to dmenu or rofi
-option="$cancel\n$colorscheme2\n$colorscheme4\n$colorscheme5\n$colorscheme6\n$colorscheme7"
+option="$cancel\n$colorscheme1\n$colorscheme2\n$colorscheme4\n$colorscheme5\n$colorscheme6\n$colorscheme7"
 
 select="$(echo -e "$option" | $prompt -p "Choose a theme" )"
 
