@@ -37,11 +37,11 @@ windowcount_colors = {
 groupbox_colors = {
     "bg": c["red"],
     "bg_focus": c["base"],
-    "bg_urgent": c["base"],
+    "bg_urgent": c["mauve"],
     "fg_active": c["base"],
     "fg_inactive": c["flamingo"],
     "fg_focus": c["red"],
-    "fg_urgent": c["mauve"],
+    "fg_urgent": c["base"],
 }
 
 layout_colors = {

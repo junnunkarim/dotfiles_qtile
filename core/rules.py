@@ -99,7 +99,7 @@ groups = [
         matches=[
             Match(wm_class="Gparted"),
             Match(wm_class="xfce4-power-manager-settings"),
-            Match(wm_class="lxappearance"),
+            Match(wm_class="Lxappearance"),
             Match(wm_class="Virt-manager"),
         ],
     ),

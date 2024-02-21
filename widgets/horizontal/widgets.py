@@ -177,9 +177,12 @@ battery_comp = {
         charge_char="󱐋",
         discharge_char="",
         full_char="",
+        notify_below=15,
+        notification_timeout=20,
         fontsize=16,
         padding=10,
         format="{char}{percent:2.0%}",
+        fmt="<b>{}</b>",
         # mouse_callbacks={
         #     "Button1": lazy.spawn("xfce4-power-manager-settings"),
         # },
@@ -206,6 +209,7 @@ time_comp = {
         fontsize=16,
         padding=10,
         format="%I:%M %p",
+        fmt="<b>{}</b>",
         font=default_font,
         mouse_callbacks={
             "Button1": lazy.spawn(["kitty", "calcure"]),
@@ -233,6 +237,7 @@ date_comp = {
         fontsize=16,
         padding=10,
         format="%a %d-%m-%Y",
+        fmt="<b>{}</b>",
         mouse_callbacks={
             "Button1": lazy.spawn(["kitty", "calcure"]),
         },

@@ -24,7 +24,7 @@ def show_keybindings(keys):
         else:
             mods += k.key
 
-        key_help += "{:<30} {}".format(mods, k.desc + "\n")
+        key_help += "{:<40} {}".format(mods, k.desc + "\n")
 
     return key_help
 

@@ -212,6 +212,6 @@
 <details>
 <summary><h4>Reveal stuffs that needs to be implemented</h4></summary>
 
-> **Under-Construction**
+- [ ] configure dunst
 
 </details>
