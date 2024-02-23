@@ -1,4 +1,5 @@
 import os
+import random
 
 home = os.path.expanduser("~")
 prefix = home + "/.config/wallpaper/"
@@ -8,3 +9,5 @@ wallpapers = [
     prefix + "everforest-walls_foggy_valley_1.png",
     prefix + "forest_stairs.jpg",
 ]
+
+wall = random.choice(wallpapers)

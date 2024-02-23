@@ -14,14 +14,14 @@ layouts = [
     layout.Max(
         border_normal=colors.client_colors["border"],
         border_focus=colors.client_colors["border_focus"],
-        border_width=2,
+        border_width=3,
         margin=gaps_size,
     ),
     layout.Tile(
         add_after_last=True,
         border_normal=colors.client_colors["border"],
         border_focus=colors.client_colors["border_focus"],
-        border_width=2,
+        border_width=3,
         margin=gaps_size,
         max_ratio=0.50,
         ratio=0.50,

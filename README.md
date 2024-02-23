@@ -76,7 +76,7 @@
 | <kbd>super</kbd> + <kbd>h</kbd>                            | Open clipboard                                        |
 | <kbd>super</kbd> + <kbd>r</kbd>                            | Open calculator                                       |
 | <kbd>super</kbd> + <kbd>e</kbd>                            | Open emoji-selector                                   |
-| <kbd>super</kbd> + <kbd>t</kbd>                            | Open theme-switcher                                   |
+| <kbd>super</kbd> + <kbd>t</kbd>                            | Open Colorscheme-switcher                             |
 | <kbd>super</kbd> + <kbd>n</kbd>                            | Open network manager                                  |
 | <kbd>super</kbd> + <kbd>k</kbd>                            | Show keybindings                                      |
 | <kbd>super</kbd> + <kbd>1-9</kbd>                          | Switch to specified group                             |
@@ -215,3 +215,7 @@
 - [ ] configure dunst
 
 </details>
+
+# Credit
+
+- [knatsakis](https://github.com/knatsakis) for his rofi script to manage bookmarks with buku

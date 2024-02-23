@@ -14,7 +14,11 @@ prompt="rofi -dmenu -i -theme $HOME/.config/qtile/external_configs/rofi/script_m
 switch_theme()
 {
   cp ${rofi_dir}/colors/$1.rasi ${rofi_dir}/colors/colors.rasi
+
   cp ${kitty_dir}/colorscheme/$1.conf ${kitty_dir}/color.conf
+  # reload kitty config
+  kill -SIGUSR1 $(pgrep kitty)
+
   cp ${zathura_dir}/theme/$1 ${zathura_dir}/theme.color
   cp ${konsole_dir}/$1.colorscheme ${konsole_dir}/color.colorscheme
 
@@ -67,9 +71,10 @@ colorscheme4=" Everforest"
 colorscheme5=" Gruvbox"
 colorscheme6=" Nord"
 colorscheme7=" Rosé Pine"
+colorscheme8=" Matugen (Material You color)"
 
 # Variable to pass to dmenu or rofi
-option="$cancel\n$colorscheme1\n$colorscheme2\n$colorscheme4\n$colorscheme5\n$colorscheme6\n$colorscheme7"
+option="$cancel\n$colorscheme1\n$colorscheme2\n$colorscheme4\n$colorscheme5\n$colorscheme6\n$colorscheme7\n$colorscheme8"
 
 select="$(echo -e "$option" | $prompt -p "Choose a theme" )"
 
@@ -130,5 +135,7 @@ case $select in
     switch_nvim_colorscheme base16-rose-pine
     switch_btop_colorscheme rose_pine
     # switch_helix_colorscheme rose_pine
+    ;;
+  $colorscheme8)
     ;;
   esac

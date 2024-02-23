@@ -1,10 +1,8 @@
 import importlib
-import random
 
 from libqtile.config import Screen
 
-from options import default_colorscheme
-
+from options import default_options, default_colorscheme
 from .bar import top_bar
 
 
@@ -21,8 +19,7 @@ def load_wallpapers_module():
 
 
 wall_mod = load_wallpapers_module()
-wall = random.choice(wall_mod.wallpapers)
-
+wall = wall_mod.wall
 
 screens = [
     Screen(top=top_bar, wallpaper=wall, wallpaper_mode="fill"),

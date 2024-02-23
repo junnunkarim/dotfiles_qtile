@@ -46,8 +46,19 @@ scripts = home + "/.config/qtile/scripts/"
 keys = [
     ##---------- System (super [+ shift]) ----------##
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key(
+        [mod, alt],
+        "c",
+        lazy.spawn(terminal + " --class=editor_cli"),
+        desc="Launch terminal for coding",
+    ),
     # toggles
-    Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
+    Key(
+        [mod],
+        "f",
+        lazy.window.toggle_fullscreen(),
+        desc="Toggle fullscreen",
+    ),
     Key([mod], "space", lazy.window.toggle_floating(), desc="Toggle floating"),
     Key([mod], "b", lazy.hide_show_bar(), desc="Toggle visibility of the bar"),
     Key(
@@ -79,12 +90,14 @@ keys = [
         [alt],
         "Tab",
         lazy.group.next_window(),
+        lazy.window.move_up(),
         desc="Cycle through windows of current group clockwise",
     ),
     Key(
         [alt],
         "grave",
         lazy.group.prev_window(),
+        lazy.window.move_up(),
         desc="Cycle through windows of current group anti-clockwise",
     ),
     Key(
@@ -143,8 +156,8 @@ keys = [
     Key(
         [mod],
         "t",
-        lazy.spawn([scripts + "theme_switcher"]),
-        desc="Open theme-switcher",
+        lazy.spawn([scripts + "change_colorscheme.py"]),
+        desc="Open Colorscheme-switcher",
     ),
     Key([mod], "n", lazy.spawn("networkmanager_dmenu"), desc="Open network manager"),
     ##---------- System Keys ----------##
@@ -239,7 +252,10 @@ keys = [
     #     desc="Open NNN file manager",
     # ),
     Key(
-        [mod, alt], "f", lazy.spawn("kitty felix"), desc="Open TUI file manager (felix)"
+        [mod, alt],
+        "f",
+        lazy.spawn("kitty --class felix felix"),
+        desc="Open TUI file manager (felix)",
     ),
     Key([mod, alt], "v", lazy.spawn(text_editor), desc="Open text editor (neovim)"),
     # Move windows between left/right columns or move up/down in current stack.

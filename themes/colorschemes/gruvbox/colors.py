@@ -15,17 +15,17 @@ other_colors = {
 # Widget Colors
 app_launcher_colors = {
     "fg": c["black"],
-    "bg": c["red2"],
+    "bg": c["green2"],
 }
 
 tray_colors = {
     "fg": ["black"],
     "fg_icon": c["black"],
-    "bg": c["orange1"],
+    "bg": c["purple2"],
 }
 
 windowname_colors = {
-    "fg": c["orange1"],
+    "fg": c["white"],
     "bg": c["black"],
 }
 
@@ -35,11 +35,11 @@ windowcount_colors = {
 }
 
 groupbox_colors = {
-    "bg": c["green1"],
-    "bg_focus": c["green0"],
-    "bg_urgent": c["green1"],
+    "bg": c["orange2"],
+    "bg_focus": c["orange1"],
+    "bg_urgent": c["orange2"],
     "fg_active": c["black"],
-    "fg_inactive": c["green0"],
+    "fg_inactive": c["orange1"],
     "fg_focus": c["black"],
     "fg_urgent": c["red1"],
 }
@@ -87,14 +87,14 @@ time_colors = {
 date_colors = {
     "fg": c["black"],
     "fg_icon": c["black"],
-    "bg": c["purple2"],
-    "bg_icon": c["purple1"],
+    "bg": c["yellow2"],
+    "bg_icon": c["yellow1"],
 }
 
 client_colors = {
     "border": c["black"],
-    "border_focus": c["green2"],
-    "border_floating": c["orange2"],
+    "border_focus": c["orange2"],
+    "border_floating": c["green2"],
 }
 
 bar_colors = {

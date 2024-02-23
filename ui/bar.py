@@ -19,6 +19,7 @@ if qtile.core.name == "x11":
         w.app_launcher
         + w.separator_small
         + w.tray
+        + w.separator_small
         + w.windowname
         + w.separator_auto
         + w.client_count
