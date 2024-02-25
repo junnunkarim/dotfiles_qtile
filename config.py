@@ -2,7 +2,8 @@ from libqtile.backend.wayland import InputConfig
 
 import core.autostart
 from ui.screens import screens
-from core.keymaps import *
+
+from core.keymaps import keys, mouse
 from core.layouts import *
 from core.rules import *
 from options import default_font

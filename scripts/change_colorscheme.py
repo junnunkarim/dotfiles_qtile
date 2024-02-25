@@ -1,9 +1,70 @@
 #!/usr/bin/env python
 
+import random
+import os
 import subprocess
 
 from fileinput import FileInput
 from pathlib import Path as path
+
+
+# helper functions
+# --------------------------------
+def wallpapers(colorscheme: str) -> list:
+    wallpaper_dict = {
+        "catppuccin_macchiato": [
+            "scenery_bridge_river_city.jpg",
+            "pixelart_evening_trees_pole_wires_makrustic.png",
+            "pixelart_night_stars_clouds_trees_cozy_PixelArtJourney_catppuccin.png",
+            "pixelart_pokemon_rayquaza_forest_16x9.png",
+            "pixelart_seabeach_evening.png",
+            "pixelart_sky_clouds_stars_moon_16x9.jpg",
+        ],
+        "dracula": [
+            "pixelart_winter_hut_deer_man_dog_hunt_PixelArtJourney.png",
+            "pixelart_arabian_palace_princess_snakepixel.png",
+            "floating_flower_dracula.jpg",
+        ],
+        "everforest": [
+            "everforest-walls_fog_forest_1.jpg",
+            "everforest-walls_foggy_valley_1.png",
+            "forest_stairs.jpg",
+        ],
+        "gruvbox": [
+            "pixelart_house_inside_girl_book_dog_jmw327.png",
+            "pixelart_house_chibi_person_game_jmw327.png",
+            "pixelart_forest_spirits_girl_adventure_updated.png",
+        ],
+        "matugen": [
+            "pixelart_pokemon_rayquaza_forest_16x9.png",
+            "pixelart_night_stars_clouds_trees_cozy_PixelArtJourney.png",
+            "pixelart_night_stars_shooting-star_river_boat_couple_relaxing.png",
+            "scenery_bridge_river_city.jpg",
+            "pixelart_evening_trees_pole_wires_makrustic.png",
+            "afternoon_light_philip_straub.jpg",
+            "anime_Sunset.jpg",
+            "mist_forest_nord.jpg",
+            "pixelart_mountains_forest_grassland_dreamlike_star_night.jpg",
+            "pixelart_night_cozy_fireflies_stars_dog.png",
+            "pixelart_thron_dark_someone.png",
+            "forest_stairs.jpg",
+            "floating_flower.jpg",
+            "forest_hut.jpg",
+            "home_at_the_end_of_the_world.jpg",
+            "pixelart_dock-no4_house_destroyed_warm-color.png",
+        ],
+        "nord": [
+            "mist_forest_nord.jpg",
+            "pixelart_night_train_cozy_gas_RoyalNaym_nord.png",
+        ],
+        "rose_pine": [
+            "pixelart_pokemon_rayquaza_forest_16x9.png",
+            "pixelart_night_stars_clouds_trees_cozy_PixelArtJourney.png",
+            "pixelart_evening_trees_pole_wires_makrustic.png",
+        ],
+    }
+
+    return wallpaper_dict[colorscheme]
 
 
 # core string replacement function
@@ -112,16 +173,15 @@ def reload_kitty() -> None:
         "kitty",
     ]
 
-    select = subprocess.run(
-        get_process_id, text=True, capture_output=True, check=True
-    ).stdout.replace("\n", " ")
+    select = subprocess.run(get_process_id, text=True, capture_output=True, check=False)
 
-    # split the string into separate process ids
-    process_ids = select.split()
+    if select.returncode == 0:
+        # split the string into separate process ids
+        process_ids = select.stdout.replace("\n", " ").split()
 
-    command = ["kill", "-SIGUSR1"] + process_ids
+        command = ["kill", "-SIGUSR1"] + process_ids
 
-    print(subprocess.run(command, text=True, check=True))
+        subprocess.run(command, text=True, check=False)
 
 
 def reload_qtile() -> None:
@@ -134,7 +194,21 @@ def reload_qtile() -> None:
         "reload_config",
     ]
 
-    subprocess.run(command, text=True, check=True)
+    subprocess.run(command, text=True, check=False)
+
+
+# functions for changing lockscreen wallpapers
+# ---------------------------------------------------------------
+def change_lockscreen(colorscheme: str) -> None:
+    wallpaper_list = wallpapers(colorscheme=colorscheme)
+    home = os.path.expanduser("~")
+    prefix = home + "/.config/wallpaper/"
+
+    random_wall = prefix + random.choice(wallpaper_list)
+
+    command = ["betterlockscreen", "--fx", " ", "-u", random_wall]
+
+    subprocess.run(command, text=True, check=False)
 
 
 # all colorscheme switcher function
@@ -186,10 +260,20 @@ def change_colorscheme(colorscheme: str) -> None:
         gtk_color(colorscheme)
         kitty_color(colorscheme)
         konsole_color(colorscheme)
-        nvim_color("base16-gruvbox")
+        nvim_color("base16-gruvbox-dark-medium")
         qtile_color(colorscheme)
         rofi_color(colorscheme)
         zathura_color(colorscheme)
+    elif colorscheme == "matugen":
+        # alacritty_color(colorscheme)
+        # btop_color(colorscheme)
+        # gtk_color(colorscheme)
+        kitty_color(colorscheme)
+        # konsole_color(colorscheme)
+        # nvim_color("base16-rose-pine")
+        qtile_color(colorscheme)
+        rofi_color(colorscheme)
+        # zathura_color(colorscheme)
     elif colorscheme == "nord":
         alacritty_color(colorscheme)
         btop_color(colorscheme)
@@ -210,17 +294,6 @@ def change_colorscheme(colorscheme: str) -> None:
         qtile_color(colorscheme)
         rofi_color(colorscheme)
         zathura_color(colorscheme)
-    elif colorscheme == "matugen":
-        # alacritty_color(colorscheme)
-        # btop_color(colorscheme)
-        # gtk_color(colorscheme)
-        kitty_color(colorscheme)
-        # konsole_color(colorscheme)
-        # nvim_color("base16-rose-pine")
-        qtile_color(colorscheme)
-        rofi_color(colorscheme)
-        # zathura_color(colorscheme)
-        pass
     else:
         pass
 
@@ -232,6 +305,8 @@ def main() -> None:
         "rofi",
         "-dmenu",
         "-i",
+        "-p",
+        "Colorschemes",
         "-theme",
         f"{path('~/.config/qtile/external_configs/rofi/script_menu.rasi').expanduser()}",
     ]
@@ -243,9 +318,9 @@ def main() -> None:
         # "everblush": " Everblush",
         "everforest": " Everforest",
         "gruvbox": " Gruvbox",
+        "matugen": " Matugen (Material-You Color Generator)",
         "nord": " Nord",
         "rose_pine": " Rose Pine",
-        "matugen": " Matugen (Material You color)",
     }
 
     # variable to pass to dmenu or rofi
@@ -259,8 +334,12 @@ def main() -> None:
 
     change_colorscheme(choice)
 
-    reload_kitty()
     reload_qtile()
+    reload_kitty()
+
+    # since betterlockscreen takes time to cache a wallpaper,
+    # it needs to be executed last
+    change_lockscreen(colorscheme=choice)
 
 
 if __name__ == "__main__":

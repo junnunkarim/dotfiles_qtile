@@ -38,6 +38,10 @@
 - Calculator: [rofi-calc](https://github.com/svenstaro/rofi-calc)
 - Bookmark Manager: [buku](https://github.com/jarun/buku)
 
+# Dependencies
+
+> **Under-Construction**
+
 # Setup
 
 > **Under-Construction**

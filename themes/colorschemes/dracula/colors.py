@@ -21,11 +21,11 @@ app_launcher_colors = {
 tray_colors = {
     "fg": c["black0"],
     "fg_icon": c["black0"],
-    "bg": c["purple"],
+    "bg": c["pink"],
 }
 
 windowname_colors = {
-    "fg": c["cyan"],
+    "fg": c["white"],
     "bg": c["black0"],
 }
 
@@ -60,7 +60,7 @@ brightness_colors = {
 
 network_colors = {
     "fg": c["black0"],
-    "bg": c["yellow"],
+    "bg": c["green"],
 }
 
 widgetbox_colors = {
@@ -70,24 +70,24 @@ widgetbox_colors = {
 
 battery_colors = {
     "fg": c["black0"],
-    "fg_icon": c["green"],
+    "fg_icon": c["orange"],
     "fg_low": c["red"],
-    "bg": c["green"],
+    "bg": c["orange"],
     "bg_icon": c["black1"],
     "bg_low": c["red"],
 }
 
 time_colors = {
     "fg": c["black0"],
-    "fg_icon": c["cyan"],
-    "bg": c["cyan"],
+    "fg_icon": c["yellow"],
+    "bg": c["yellow"],
     "bg_icon": c["black1"],
 }
 
 date_colors = {
     "fg": c["black0"],
-    "fg_icon": c["orange"],
-    "bg": c["orange"],
+    "fg_icon": c["purple"],
+    "bg": c["purple"],
     "bg_icon": c["black1"],
 }
 

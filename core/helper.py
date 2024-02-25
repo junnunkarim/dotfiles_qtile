@@ -2,7 +2,7 @@ import importlib.util
 
 
 # dynamically load module
-def load_module(module_path):
+def load_module(module_path: str) -> object:
     try:
         module = importlib.import_module(module_path)
         return module
