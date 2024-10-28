@@ -1,6 +1,6 @@
 import os
 
-default_colorscheme = "dracula"
+default_colorscheme = "gruvbox"
 default_bar_type = "horizontal"  # currently vertical is not supported
 default_font = "Iosevka Nerd Font Mono"
 
@@ -26,8 +26,6 @@ default_apps = {
 }
 
 default_options = {
-    "lockscreen_wall": wallpapers
-    + "pixelart_night_stars_clouds_trees_cozy_PixelArtJourney.png",
     "gaps_size": 10,
     "mod": "mod4",
     "alt": "mod1",

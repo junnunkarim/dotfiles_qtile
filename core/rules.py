@@ -8,8 +8,8 @@ from .scratchpads import scratchpad
 groups = [
     Group(
         "1",
-        # label="",
-        label="",
+        label="",
+        # label="",
         matches=[
             Match(wm_class="Alacritty"),
             Match(wm_class="kitty"),
@@ -20,8 +20,8 @@ groups = [
     ),
     Group(
         "2",
-        # label="",
-        label="",
+        label="",
+        # label="",
         matches=[
             Match(wm_class="Geany"),
             Match(wm_class="editor_cli"),
@@ -30,12 +30,14 @@ groups = [
             Match(wm_class="jetbrains-pycharm"),
             Match(wm_class="jetbrains-dataspell"),
             Match(wm_class="Emacs"),
+            Match(wm_class="jupyter-qtconsole"),
+            Match(wm_class="PacketTracer"),
         ],
     ),
     Group(
         "3",
-        # label="󰉋",
-        label="",
+        label="󰉋",
+        # label="",
         matches=[
             Match(wm_class="felix"),
             Match(wm_class="Thunar"),
@@ -45,8 +47,8 @@ groups = [
     ),
     Group(
         "4",
-        # label="󰊯",
-        label="",
+        label="󰊯",
+        # label="",
         matches=[
             Match(wm_class="firefox"),
             Match(wm_class="chromium"),
@@ -56,8 +58,8 @@ groups = [
     ),
     Group(
         "5",
-        # label="",
-        label="",
+        label="",
+        # label="",
         matches=[
             Match(title="GNU Image Manipulation Program"),  # gimp
             Match(wm_class="vlc"),
@@ -67,27 +69,28 @@ groups = [
     ),
     Group(
         "6",
-        # label="󰗚",
-        label="",
+        label="󰗚",
+        # label="",
         matches=[
             Match(wm_class="calibre-gui"),
             Match(wm_class="DesktopEditors"),
             Match(wm_class="org.pwmt.zathura"),
             Match(wm_class="sioyek"),
+            Match(wm_class="com.github.johnfactotum.Foliate"),
         ],
     ),
     Group(
         "7",
-        # label="󰚢",
-        label="",
+        label="󰚢",
+        # label="",
         matches=[
             Match(wm_class="telegram-desktop"),
         ],
     ),
     Group(
         "8",
-        # label="󰊖",
-        label="",
+        label="󰊖",
+        # label="",
         matches=[
             Match(wm_class="Ryujinx"),
             Match(wm_class="yuzu"),
@@ -96,8 +99,8 @@ groups = [
     ),
     Group(
         "9",
-        # label="󰩮",
-        label="",
+        label="󰩮",
+        # label="",
         matches=[
             Match(wm_class="Gparted"),
             Match(wm_class="xfce4-power-manager-settings"),

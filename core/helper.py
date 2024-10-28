@@ -1,4 +1,4 @@
-import importlib.util
+import importlib
 
 
 # dynamically load module

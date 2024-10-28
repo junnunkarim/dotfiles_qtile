@@ -44,6 +44,7 @@ floating_layout = layout.Floating(
         Match(wm_class="protonvpn"),
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(wm_class="xfce4-about"),
+        Match(wm_class="PacketTracer"),
         Match(wm_class="xfce4-power-manager-settings"),
         Match(title="branchdialog"),  # gitk
         Match(title="GNU Image Manipulation Program"),  # gimp

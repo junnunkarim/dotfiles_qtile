@@ -67,7 +67,7 @@ groups_comp = widget.GroupBox(
     ],  # border or line colour for group on this screen when focused.
     urgent_border=colors.groupbox_colors["bg_urgent"],  # urgent border or line color
     #
-    fontsize=25,
+    fontsize=30,
     padding=10,
     highlight_method="block",
     hide_unused=False,
@@ -96,6 +96,7 @@ volume_comp = {
         },
     ),
     "value": widget.Volume(
+        foreground=colors.volume_colors["fg"],
         background=colors.volume_colors["bg"],
         padding=10,
         # emoji=true,
@@ -118,6 +119,7 @@ backlight_comp = {
         fmt="󰃝",
     ),
     "value": widget.Backlight(
+        foreground=colors.brightness_colors["fg"],
         background=colors.brightness_colors["bg"],
         padding=10,
         # emoji=true,

@@ -3,7 +3,16 @@ import json
 
 from .wallpapers import wall
 
-# Define the command as a list of strings
+# home = os.path.expanduser("~")
+# prefix = home + "/.config/wallpaper/"
+# wallpaper_json_path = home + "/.config/qtile/themes/colorschemes/wallpaper.json"
+#
+# with open(wallpaper_json_path, "r") as json_file:
+#     data = json.load(json_file)
+#
+#     wall = prefix + data["wallpaper"]
+
+# define the command as a list of strings
 command = [
     "matugen",
     "image",
@@ -20,17 +29,17 @@ command = [
     wall,
 ]
 
-# Run the command and capture its output
+# run the command and capture its output
 output = subprocess.run(command, capture_output=True, text=True, check=True)
 
-# Check if the command was successful
+# check if the command was successful
 if output.returncode == 0:
-    # Parse the JSON output
+    # parse the JSON output
     json_output = json.loads(output.stdout)
 
     c = json_output["colors"]["dark"]
 
-    # Widget Colors
+    # widget colors
     app_launcher_colors = {
         "fg": c["on_tertiary_container"],
         "bg": c["tertiary_container"],
@@ -120,5 +129,5 @@ if output.returncode == 0:
         "border": c["surface"],
     }
 else:
-    # Print an error message if the command failed
+    # print an error message if the command failed
     print(f"Command failed with return code {output.returncode}")

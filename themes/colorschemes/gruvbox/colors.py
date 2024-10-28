@@ -55,12 +55,12 @@ volume_colors = {
 
 brightness_colors = {
     "fg": c["black"],
-    "bg": c["orange2"],
+    "bg": c["purple2"],
 }
 
 network_colors = {
     "fg": c["black"],
-    "bg": c["yellow2"],
+    "bg": c["green2"],
 }
 
 widgetbox_colors = {

@@ -1,4 +1,9 @@
 <h1 align="center"><i><u>Qtile Config</u></i></h1>
+<h2 align="center"><i><u>Seriously OUTDATED! Rewrite Needed!</u></i></h2>
+
+> [!CAUTION]
+>
+> <h4>Rewrite Needed!</h4>
 
 ![img](/ss/qtile_unixporn.png)
 

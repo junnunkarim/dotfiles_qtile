@@ -2,6 +2,7 @@
 
 import random
 import os
+import json
 import subprocess
 
 from fileinput import FileInput
@@ -22,7 +23,7 @@ def wallpapers(colorscheme: str) -> list:
         ],
         "dracula": [
             "pixelart_winter_hut_deer_man_dog_hunt_PixelArtJourney.png",
-            "pixelart_arabian_palace_princess_snakepixel.png",
+            # "pixelart_arabian_palace_princess_snakepixel.png",
             "floating_flower_dracula.jpg",
         ],
         "everforest": [
@@ -200,13 +201,24 @@ def reload_qtile() -> None:
 # functions for changing lockscreen wallpapers
 # ---------------------------------------------------------------
 def change_lockscreen(colorscheme: str) -> None:
-    wallpaper_list = wallpapers(colorscheme=colorscheme)
     home = os.path.expanduser("~")
     prefix = home + "/.config/wallpaper/"
+    json_path = home + "/.config/qtile/themes/colorschemes/wallpaper.json"
 
-    random_wall = prefix + random.choice(wallpaper_list)
+    # if os.path.exists(json_path):
+    #     with open(json_path, "r") as json_file:
+    #         data = json.load(json_file)
+    #
+    #         wall = prefix + data["wallpaper"]
+    # else:
+    wallpaper_list = wallpapers(colorscheme=colorscheme)
 
-    command = ["betterlockscreen", "--fx", " ", "-u", random_wall]
+    # select a random wallpaper
+    wall = prefix + random.choice(wallpaper_list)
+
+    print(wall)
+
+    command = ["betterlockscreen", "--fx", " ", "-u", wall]
 
     subprocess.run(command, text=True, check=False)
 
@@ -306,10 +318,15 @@ def main() -> None:
         "-dmenu",
         "-i",
         "-p",
-        "Colorschemes",
+        "Choose a colorscheme",
         "-theme",
         f"{path('~/.config/qtile/external_configs/rofi/script_menu.rasi').expanduser()}",
     ]
+    # prompt = [
+    #     "dmenu",
+    #     "-l",
+    #     "12",
+    # ]
 
     colorschemes = {
         "cancel": " Cancel",

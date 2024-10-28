@@ -1,13 +1,29 @@
 import os
+import json
 import random
+
+wallpapers = [
+    "pixelart_pokemon_rayquaza_forest_16x9.png",
+    "pixelart_night_stars_clouds_trees_cozy_PixelArtJourney.png",
+    "pixelart_evening_trees_pole_wires_makrustic.png",
+]
 
 home = os.path.expanduser("~")
 prefix = home + "/.config/wallpaper/"
 
-wallpapers = [
-    prefix + "pixelart_pokemon_rayquaza_forest_16x9.png",
-    prefix + "pixelart_night_stars_clouds_trees_cozy_PixelArtJourney.png",
-    prefix + "pixelart_evening_trees_pole_wires_makrustic.png",
-]
+choice = random.choice(wallpapers)
+wall = prefix + choice
+# wall = wallpapers[0]
 
-wall = random.choice(wallpapers)
+# dump the chosen wallpaper in a json so that `change_colorscheme`
+# script can use to set lockscreen wallpaper
+json_path = home + "/.config/qtile/themes/colorschemes/wallpaper.json"
+
+with open(json_path, "w") as json_file:
+    json.dump(
+        {
+            "wallpaper": choice,
+        },
+        json_file,
+        indent=4,
+    )

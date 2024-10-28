@@ -2,16 +2,6 @@ from themes.core_colorschemes import rose_pine
 
 c = rose_pine
 
-other_colors = {
-    "light": c["white"],
-    "gray": c["black2"],
-    "dark": c["black3"],
-    "too_dark": c["black3"],
-    "font": c["white"],
-    "bg": c["black3"],
-    "border": c["black1"],
-}
-
 # Widget c
 app_launcher_colors = {
     "fg": c["black3"],
@@ -25,7 +15,7 @@ tray_colors = {
 }
 
 windowname_colors = {
-    "fg": c["peach2"],
+    "fg": c["white"],
     "bg": c["black3"],
 }
 

@@ -34,6 +34,7 @@ windowcount_colors = {
     "bg": c["blue1"],
 }
 
+# tags
 groupbox_colors = {
     "bg": c["green1"],
     "bg_focus": c["black"],

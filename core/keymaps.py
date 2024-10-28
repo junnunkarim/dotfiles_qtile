@@ -59,7 +59,7 @@ keys = [
         lazy.window.toggle_fullscreen(),
         desc="Toggle fullscreen",
     ),
-    Key([mod], "space", lazy.window.toggle_floating(), desc="Toggle floating"),
+    Key([mod, "shift"], "f", lazy.window.toggle_floating(), desc="Toggle floating"),
     Key([mod], "b", lazy.hide_show_bar(), desc="Toggle visibility of the bar"),
     Key(
         [mod, "shift"],
@@ -222,20 +222,20 @@ keys = [
     Key(
         [],
         "Print",
-        lazy.spawn(["flameshot", "full", "-p", home + "/Pictures/SS/"]),
+        lazy.spawn(["flameshot", "full", "-p", home + "/pictures/ss/"]),
         desc="Take screenshot",
     ),
     Key([mod], "Print", lazy.spawn("flameshot gui"), desc="Open flameshot (gui)"),
     Key(
         [alt],
         "Print",
-        lazy.spawn(["flameshot", "full", "-d", "5000", "-p", home + "/Pictures/SS/"]),
+        lazy.spawn(["flameshot", "full", "-d", "5000", "-p", home + "/pictures/ss/"]),
         desc="Take screenshot after 5 seconds",
     ),
     Key(
         ["shift"],
         "Print",
-        lazy.spawn(["flameshot", "full", "-d", "10000", "-p", home + "/Pictures/SS/"]),
+        lazy.spawn(["flameshot", "full", "-d", "10000", "-p", home + "/pictures/ss/"]),
         desc="Take screenshot after 10 seconds",
     ),
     ##---------- Applications (super + alt) ----------##
@@ -254,7 +254,7 @@ keys = [
     Key(
         [mod, alt],
         "f",
-        lazy.spawn("kitty --class felix felix"),
+        lazy.spawn("kitty --class felix fx"),
         desc="Open TUI file manager (felix)",
     ),
     Key([mod, alt], "v", lazy.spawn(text_editor), desc="Open text editor (neovim)"),
@@ -296,7 +296,7 @@ keys = [
     Key(
         [mod, ctrl], "u", lazy.spawn("pkill picom"), desc="Turn off compositor (picom)"
     ),
-    Key([mod, ctrl], "g", lazy.spawn("gpick"), desc="Open color-picker"),
+    Key([mod, ctrl], "g", lazy.spawn("gpick -p"), desc="Open color-picker"),
 ]
 
 keys.extend(
